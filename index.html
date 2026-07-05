@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="من ميدالية مفاتيح إلى حقيبة كتف فاخرة في ثوانٍ. تصميم مدمج، أنيق وعالي الجودة مناسب للحياة اليومية.">
+  <link rel="stylesheet" href="styles.css?v=1.8">
+</head>
+<body>
+
+  <!-- شريط الإعلان العلوي المتحرك -->
+  <div class="announcement-bar">
+    <div class="announcement-bar-content">
+      تخفيض 30% اليوم &bull; الأناقة والفخامة التي ترافقك دائماً &bull; تخفيض 30% اليوم &bull; الأناقة والفخامة التي ترافقك دائماً
+    </div>
+  </div>
+
+  <!-- الهيدر / شريط التنقل -->
+  <header>
+    <div class="nav-left" style="width: 40px;"></div>
+    
+    <a href="#" class="logo">TIVARO</a>
+    
+    <div class="nav-right">
+      <button class="nav-btn cart-icon-wrapper open-drawer-btn" data-payment-method="cod" aria-label="عرض السلة">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge">1</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- قسم الواجهة البانر الرئيسي (Hero) -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <h1 class="hero-title">من ميدالية مفاتيح<br>إلى حقيبة كتف <span>في ثوانٍ</span></h1>
+      
+      <div class="price-box">
+        <span class="price-current">2900 دج</span>
+        <span class="price-original">4500 دج</span>
+        <span class="discount-badge" style="background-color: #FFE3E3; color: #E53E3E;">عرض خاص لـ 3 قطع! 🔥</span>
+      </div>
+      
+
+      
+      <div class="cta-group">
+        <button class="btn-primary open-drawer-btn" data-payment-method="cod">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          اطلب الآن - الدفع عند الاستلام
+        </button>
+        <button class="btn-secondary open-drawer-btn" data-payment-method="card" style="display: none;">
+          <!-- نخفي الدفع بالبطاقة إذا كان الزبون يفضل فقط COD محلياً، أو نبقيه متاحاً حسب الطلب. سنتركه مغلقاً مؤقتاً أو نفعله -->
+          الدفع بالبطاقة الذهبية/CIB (خصم 10%)
+        </button>
+      </div>
+      
+      <div class="shipping-countdown">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+        <span>اطلب خلال <span id="countdown-timer">2 ساعة 33 دقيقة</span> واستلمها خلال 24 ساعة فقط! ⚡</span>
+      </div>
+    </div>
+    
+    <div class="hero-image-wrapper">
+      <img src="assets/hero.jpg" alt="حقيبة اليد الذكية القابلة للطي">
+    </div>
+  </section>
+
+  <!-- قسم تفاصيل المنتج وكشفه (Product Reveal) -->
+  <section class="product-reveal">
+    <div class="product-reveal-container">
+      <div class="reveal-img-wrapper reveal-slider-container">
+        <div class="reveal-slider-track" id="revealSliderTrack">
+          <div class="reveal-slide">
+            <img src="assets/unfolding.jpg" alt="طريقة فتح الحقيبة">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/hero.jpg" alt="تصميم الحقيبة الفاخر">
+          </div>
+
+          <div class="reveal-slide">
+            <img src="assets/New folder/aaaaw.jpg" alt="عرض تفصيلي للحقيبة">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/aaz.jpg" alt="عملية وخفيفة">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/az.jpg" alt="سهلة الاستخدام والتخزين">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/bz.jpg" alt="جودة صناعة فاخرة">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/dsd.jpg" alt="مساحة شاسعة بالداخل">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/dsddsss.jpg" alt="ألوان عصرية متميزة">
+          </div>
+          <div class="reveal-slide">
+            <img src="assets/New folder/xcxc.jpg" alt="تفاصيل الخياطة المتقنة">
+          </div>
+        </div>
+        <!-- مؤشرات الانتقال (Dots) -->
+        <div class="reveal-slider-dots" id="revealSliderDots"></div>
+      </div>
+      
+      <div class="reveal-content">
+        <span class="section-tag">مصممة لراحتك اليومية</span>
+        <h2 class="section-title">من ميدالية مفاتيح إلى حقيبة يد فاخرة تتسع لكل أغراضك</h2>
+        <p class="reveal-desc">
+          صغيرة الحجم بما يكفي لتعلق مع مفاتيحك أو في حقيبتك العادية، وأنيقة وعملية بما يكفي لتنقذك في أي وقت. الحقيبة الذكية القابلة للطي تفتح في ثوانٍ لتتحول لحقيبة يد واسعة تسع 15 لتراً للتسوق، السفر، العمل، أو الخروج؛ تجمع بين السهولة المطلقة والجودة العالية.
+        </p>
+        
+        <ul class="reveal-features">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>مرافقة لك دائماً:</span> لن تنسى حقيبة التسوق الخاصة بك في البيت بعد الآن، تعلق مباشرة بميدالية المفاتيح أو الحقيبة الشخصية.
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>تفتح في ثوانٍ:</span> مساحة تخزين فورية وعالية السعة تبدأ من كبسولة جلدية صغيرة.
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>جودة ومتانة ممتازة:</span> قماش عالي الكثافة طارد للماء ومقاوم للتمزق مع تفاصيل وتطريزات جلدية فاخرة.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم استعراض الفيديوهات التفاعلية -->
+  <section class="media-carousel-section">
+    <div class="section-header">
+      <span class="section-tag">شاهدها وهي تعمل</span>
+      <h2 class="section-title">كيف تتناسب هذه الحقيبة مع روتينك اليومي</h2>
+    </div>
+    
+    <div class="carousel-outer">
+      <button class="carousel-nav-btn prev" id="carouselPrev" aria-label="السابق">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <div class="carousel-inner-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- بطاقة الفيديو 1 -->
+          <div class="carousel-card">
+            <video src="assets/lifestyle1.mp4" loop muted playsinline></video>
+            <div class="video-play-btn" aria-label="شغل الفيديو التوضيحي">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div class="card-overlay">
+              <p>مظهر أنيق وعملي في كل الأوقات ✨</p>
+            </div>
+          </div>
+          
+          <!-- بطاقة الفيديو 2 -->
+          <div class="carousel-card">
+            <video src="assets/b.mp4" loop muted playsinline></video>
+            <div class="video-play-btn" aria-label="شغل الفيديو التوضيحي">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div class="card-overlay">
+              <p>تطوى وتعود لحجمها الصغير في 5 ثوانٍ فقط</p>
+            </div>
+          </div>
+          
+          <!-- بطاقة الفيديو 3 -->
+          <div class="carousel-card">
+            <video src="assets/c.mp4" loop muted playsinline></video>
+            <div class="video-play-btn" aria-label="شغل الفيديو التوضيحي">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div class="card-overlay">
+              <p>تتناسق مع جميع إطلالاتك بشكل مميز</p>
+            </div>
+          </div>
+          
+          <!-- بطاقة الصورة 4 -->
+          <div class="carousel-card">
+            <img src="assets/hero.jpg" alt="تفاصيل الحقيبة الذكية">
+            <div class="card-overlay">
+              <p>تفاصيل جلدية فاخرة وخياطة متينة</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="carousel-nav-btn next" id="carouselNext" aria-label="التالي">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- قسم اختيار العروض والأسعار المخصصة (Packages) -->
+  <section class="packages-section" id="packages">
+    <div class="section-header">
+      <span class="section-tag">عروض حصرية ولفترة محدودة</span>
+      <h2 class="section-title">اختر العرض المناسب لك</h2>
+      <div class="bullet-points-intro">
+        استفد من أقوى العروض والتخفيضات ووفر أكثر عند شراء أكثر من قطعة:
+        <ul class="bullets-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            تعليق سهل مع المفاتيح أو الشنط
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            تفتح وتتسع في ثوانٍ
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            وزن خفيف جداً وجودة ممتازة
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- شبكة كروت العروض والأسعار الجذابة -->
+    <div class="packages-grid">
+      
+      <!-- عرض 3 حقائب (العرض الخارق الجذاب بـ 2900 دج فقط!) -->
+      <div class="package-card selected" data-package-id="3">
+        <div class="package-badge" style="background-color: #E53E3E; color: #FFF; animation: pulse 2s infinite;">توفير خارق 🌟</div>
+        <div class="radio-indicator"></div>
+        <h3 class="package-title">3 حقائب (عرض خاص)</h3>
+        <span class="package-subtitle">مجموعة القيمة الكبرى</span>
+        <span class="package-discount-pill" style="background-color: #E53E3E; color: white;">3 قطع بـ 2900 دج فقط! 🔥</span>
+        
+        <div class="package-price-container">
+          <div class="package-price-current">2900 دج</div>
+          <div class="package-price-original">4500 دج</div>
+        </div>
+        
+        <div class="package-color-select">
+          <div class="custom-select-wrapper" style="margin-bottom: 8px;">
+            <select class="custom-select" name="main_color_3_1" aria-label="اختر لون الحقيبة الأولى">
+              <option value="Black">أسود (Black)</option>
+              <option value="Beige">بيج (Beige)</option>
+              <option value="Olive Green" selected>أخضر زيتوني (Olive)</option>
+            </select>
+          </div>
+          <div class="custom-select-wrapper" style="margin-bottom: 8px;">
+            <select class="custom-select" name="main_color_3_2" aria-label="اختر لون الحقيبة الثانية">
+              <option value="Black">أسود (Black)</option>
+              <option value="Beige" selected>بيج (Beige)</option>
+              <option value="Olive Green">أخضر زيتوني (Olive)</option>
+            </select>
+          </div>
+          <div class="custom-select-wrapper">
+            <select class="custom-select" name="main_color_3_3" aria-label="اختر لون الحقيبة الثالثة">
+              <option value="Black" selected>أسود (Black)</option>
+              <option value="Beige">بيج (Beige)</option>
+              <option value="Olive Green">أخضر زيتوني (Olive)</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="package-order-btn open-drawer-btn" data-payment-method="cod">
+          اطلب هذا العرض الآن 🛍️
+        </button>
+      </div>
+
+      <!-- عرض حقيبتين (خصم إضافي) -->
+      <div class="package-card" data-package-id="2">
+        <div class="package-badge" style="background-color: #C5A059; color: #FFF;">الأكثر طلباً 🔥</div>
+        <div class="radio-indicator"></div>
+        <h3 class="package-title">حقيبتين (2)</h3>
+        <span class="package-subtitle">الراحة المزدوجة</span>
+        <span class="package-discount-pill">خصم 50% على الثانية</span>
+        
+        <div class="package-price-container">
+          <div class="package-price-current">2400 دج</div>
+          <div class="package-price-original">5000 دج</div>
+        </div>
+        
+        <div class="package-color-select">
+          <div class="custom-select-wrapper" style="margin-bottom: 8px;">
+            <select class="custom-select" name="main_color_2_1" aria-label="اختر لون الحقيبة الأولى">
+              <option value="Black">أسود (Black)</option>
+              <option value="Beige" selected>بيج (Beige)</option>
+              <option value="Olive Green">أخضر زيتوني (Olive Green)</option>
+            </select>
+          </div>
+          <div class="custom-select-wrapper">
+            <select class="custom-select" name="main_color_2_2" aria-label="اختر لون الحقيبة الثانية">
+              <option value="Black" selected>أسود (Black)</option>
+              <option value="Beige">بيج (Beige)</option>
+              <option value="Olive Green">أخضر زيتوني (Olive Green)</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="package-order-btn open-drawer-btn" data-payment-method="cod">
+          اطلب هذا العرض الآن 🛍️
+        </button>
+      </div>
+
+      <!-- عرض حقيبة واحدة -->
+      <div class="package-card" data-package-id="1">
+        <div class="radio-indicator"></div>
+        <h3 class="package-title">حقيبة واحدة (1)</h3>
+        <span class="package-subtitle">الأساسية اليومية</span>
+        
+        <div class="package-price-container">
+          <div class="package-price-current">1500 دج</div>
+          <div class="package-price-original">2500 دج</div>
+        </div>
+        
+        <div class="package-color-select">
+          <div class="custom-select-wrapper">
+            <select class="custom-select" name="main_color_1" aria-label="اختر لون الحقيبة">
+              <option value="Black">أسود (Black)</option>
+              <option value="Beige" selected>بيج (Beige)</option>
+              <option value="Olive Green">أخضر زيتوني (Olive Green)</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="package-order-btn open-drawer-btn" data-payment-method="cod">
+          اطلب هذا العرض الآن 🛍️
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+  </section>
+
+  <!-- درج تأكيد الطلب الاستمارة (Checkout Drawer Sliding Panel) -->
+  <div class="order-drawer-backdrop" id="orderDrawerBackdrop">
+    <div class="order-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">يرجى ملئ الاستمارة لإتمام طلبك</h3>
+        <button class="drawer-close" id="drawerCloseBtn" aria-label="إغلاق">&times;</button>
+      </div>
+      
+      <div class="drawer-body">
+        <!-- اختيار العرض مباشرة داخل الدرج -->
+        <div class="drawer-package-selector">
+          <span class="selector-label">العرض المختار:</span>
+          <div class="package-segments">
+            <div class="segment-opt" data-package-id="3">
+              <span class="segment-title">3 حقائب</span>
+              <span class="segment-price">2900 دج</span>
+            </div>
+            <div class="segment-opt" data-package-id="2">
+              <span class="segment-title">حقيبتين</span>
+              <span class="segment-price">2400 دج</span>
+            </div>
+            <div class="segment-opt" data-package-id="1">
+              <span class="segment-title">حقيبة واحدة</span>
+              <span class="segment-price">1500 دج</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- كارت تفاصيل السعر والعرض المختار -->
+        <div class="drawer-summary-card">
+          <div class="summary-row">
+            <span>اسم المنتج</span>
+            <span id="drawerProductName" style="font-weight: 700; color: var(--color-text-dark);">تيفارو إيفرغو™</span>
+          </div>
+          <div class="summary-row">
+            <span>عدد القطع المطلوبة</span>
+            <span id="drawerQty" style="font-weight: 700; color: var(--color-text-dark);">1 قطعة</span>
+          </div>
+          <div class="summary-row" id="drawerDiscountRow" style="display:none; color: #2F6E5F; font-weight: 600;">
+            <span>خصم الدفع بالبطاقة (10% OFF)</span>
+            <span id="drawerDiscountVal">- 290 دج</span>
+          </div>
+          <div class="summary-row total">
+            <span>المجموع الإجمالي</span>
+            <span id="drawerTotal">2900 دج</span>
+          </div>
+        </div>
+
+        <!-- الألوان التي يتم تحديدها بناءً على العرض المختار -->
+        <div id="drawerBagConfigs" class="drawer-bag-configs">
+          <!-- يتم ملؤها ديناميكياً عبر الجافا سكربت -->
+        </div>
+
+        <!-- استمارة معلومات الزبون للشحن -->
+        <form class="order-form" id="orderForm">
+          <!-- الاسم الكامل -->
+          <div class="form-group">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <input type="text" class="form-input" id="fullName" placeholder="الاسم الكامل للزبون" required>
+          </div>
+
+          <!-- رقم الهاتف -->
+          <div class="form-group">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <input type="tel" class="form-input" id="phone" placeholder="رقم الهاتف (يرجى التأكد من الرقم)" pattern="[0-9]*" inputmode="numeric" required>
+          </div>
+
+
+
+          <!-- اختيار نوع التوصيل -->
+          <div class="delivery-type-container">
+            <span class="delivery-type-label">نوع التوصيل:</span>
+            <div class="delivery-type-selector">
+              <label class="delivery-type-option active" id="deliveryHomeOpt">
+                <input type="radio" name="deliveryType" value="home" checked style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>توصيل للمنزل</span>
+              </label>
+              <label class="delivery-type-option" id="deliveryOfficeOpt">
+                <input type="radio" name="deliveryType" value="office" style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>استلام من المكتب</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- اختيار الولاية (dropdown) -->
+          <div class="form-group" id="emirateGroup">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </span>
+            <select class="form-input" id="emirate" required>
+              <option value="" disabled selected>اختر الولاية</option>
+            </select>
+            <span class="select-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+
+          <!-- اختيار مكتب الشحن (dropdown) - يظهر في حالة المكتب فقط -->
+          <div class="form-group" id="officeGroup" style="display: none;">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </span>
+            <select class="form-input" id="office">
+              <option value="" disabled selected>اختر مكتب الشحن المتوفر</option>
+            </select>
+            <span class="select-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+
+          <!-- اختيار البلدية (dropdown) - يظهر في حالة المنزل فقط -->
+          <div class="form-group" id="cityGroup">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </span>
+            <select class="form-input" id="city" required>
+              <option value="" disabled selected>اختر البلدية / الدائرة</option>
+            </select>
+            <span class="select-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+
+          <!-- العنوان الكامل - يظهر في حالة المنزل فقط -->
+          <div class="form-group" id="addressGroup">
+            <span class="form-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </span>
+            <input type="text" class="form-input" id="address" placeholder="العنوان الكامل (الحي، اسم الشارع، رقم المنزل)" required>
+          </div>
+
+
+
+          <!-- زر تأكيد وإرسال الطلب -->
+          <button type="submit" class="btn-primary submit-btn">
+            <span id="submitBtnText">تأكيد الطلب - الدفع عند الاستلام</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- بوب أب إشعار النجاح وتأكيد الطلب (Success Popup Modal) -->
+  <div class="success-modal-backdrop" id="successModalBackdrop">
+    <div class="success-modal">
+      <div class="success-icon-container">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      
+      <h3 class="success-title">تم تسجيل طلبك بنجاح!</h3>
+      <p class="success-text">شكراً لتسوقكم من متجرنا. لقد تلقينا طلبك بنجاح، وسوف يتصل بك فريق خدمة العملاء الخاص بنا في أقرب وقت لتأكيد العنوان وشحن طلبيتك.</p>
+      
+      <div class="receipt-card">
+        <h4 class="receipt-title">ملخص الطلبية</h4>
+        <div class="receipt-row bold">
+          <span>رقم مرجع الطلب</span>
+          <span id="receiptOrderNum">TIV-123456</span>
+        </div>
+        <div class="receipt-row">
+          <span>العرض المختار</span>
+          <span id="receiptPackage">3 حقائب (عرض خاص)</span>
+        </div>
+        <div class="receipt-row">
+          <span>الألوان المختارة</span>
+          <span id="receiptColors">بيج، أسود، أخضر زيتوني</span>
+        </div>
+        <div class="receipt-row">
+          <span>طريقة الدفع</span>
+          <span id="receiptPayment">الدفع عند الاستلام (COD)</span>
+        </div>
+        <div class="receipt-row bold"
+          style="border-top: 1px dashed rgba(90, 62, 45, 0.15); margin-top: 10px; padding-top: 8px;">
+          <span>السعر الإجمالي المطلوب</span>
+          <span id="receiptTotal">2900 دج</span>
+        </div>
+      </div>
+      
+      <button class="btn-primary success-close-btn" id="successCloseBtn">مواصلة التسوق</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
