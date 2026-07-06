@@ -326,6 +326,16 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDrawerSegmentsActiveState(selectedPackageId);
     drawerBackdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
+    
+    // إرسال حدث بدء الدفع لفيسبوك بيكسل
+    if (typeof fbq === 'function') {
+      const pkg = packages[selectedPackageId];
+      fbq('track', 'InitiateCheckout', {
+        value: pkg ? pkg.price : 0,
+        currency: 'DZD',
+        content_name: pkg ? pkg.title : 'Tivaro Bag'
+      });
+    }
   }
 
   function closeOrderDrawer() {
@@ -600,6 +610,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(() => console.log('تم إرسال الطلب إلى جوجل شيت بنجاح.'))
         .catch(err => console.error('فشل إرسال الطلب إلى جوجل شيت:', err));
+      }
+
+      // إرسال حدث الشراء لفيسبوك بيكسل
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          value: total,
+          currency: 'DZD',
+          content_name: productName,
+          content_type: 'product',
+          num_items: pkg.bagCount
+        });
       }
       
       // إغلاق درج الشحن
