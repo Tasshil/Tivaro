@@ -217,23 +217,56 @@ header.scrolled {
 
 .price-box {
   display: inline-flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   margin-bottom: 30px;
-  padding: 12px 24px;
-  background: rgba(229, 62, 62, 0.05);
-  border-radius: 12px;
+  padding: 16px 24px;
+  background: rgba(229, 62, 62, 0.04);
+  border-radius: 14px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 body[dir="rtl"] .price-box {
   border-right: 4px solid #E53E3E;
   border-left: none;
+  align-items: flex-start;
 }
 
 body[dir="ltr"] .price-box {
   border-left: 4px solid #E53E3E;
   border-right: none;
+  align-items: flex-start;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.price-row-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.price-row-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+}
+
+.price-row-deal .price-row-label {
+  color: #D32F2F;
+}
+
+.price-row-single {
+  border-bottom: 1px dashed rgba(229, 62, 62, 0.15);
+  padding-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .price-current {
@@ -501,6 +534,62 @@ body[dir="ltr"] .price-box {
   background-color: var(--color-accent);
   transform: scale(1.2);
 }
+
+.reveal-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-smooth);
+  z-index: 15;
+}
+
+.reveal-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.reveal-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.reveal-nav-btn.prev {
+  left: 15px;
+}
+
+.reveal-nav-btn.next {
+  right: 15px;
+}
+
+body[dir="rtl"] .reveal-nav-btn.prev {
+  left: auto;
+  right: 15px;
+}
+
+body[dir="rtl"] .reveal-nav-btn.next {
+  right: auto;
+  left: 15px;
+}
+
+body[dir="rtl"] .reveal-nav-btn.prev svg {
+  transform: rotate(180deg);
+}
+
+body[dir="rtl"] .reveal-nav-btn.next svg {
+  transform: rotate(180deg);
+}
 .reveal-content .section-title {
   color: var(--color-text-light);
   margin-bottom: 25px;
@@ -553,6 +642,7 @@ body[dir="ltr"] .price-box {
 .carousel-inner-wrapper {
   overflow: hidden;
   width: 100%;
+  direction: ltr; /* Force LTR direction to prevent translation bugs in RTL */
 }
 
 .carousel-track {

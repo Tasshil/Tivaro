@@ -58,9 +58,16 @@
       <h1 class="hero-title">من ميدالية مفاتيح<br>إلى حقيبة كتف <span>في ثوانٍ</span></h1>
       
       <div class="price-box">
-        <span class="price-current">2900 دج</span>
-        <span class="price-original">4500 دج</span>
-        <span class="discount-badge" style="background-color: #FFE3E3; color: #E53E3E;">عرض خاص لـ 3 قطع! 🔥</span>
+        <div class="price-row price-row-single">
+          <span class="price-row-label">سعر قطعة واحدة:</span>
+          <span class="price-row-amount">1500 دج</span>
+        </div>
+        <div class="price-row price-row-deal">
+          <span class="price-row-label">عرض 3 قطع:</span>
+          <span class="price-current">2900 دج</span>
+          <span class="price-original">4500 دج</span>
+          <span class="discount-badge" style="background-color: #FFE3E3; color: #E53E3E;">توفير خارق! 🔥</span>
+        </div>
       </div>
       
 
@@ -106,9 +113,6 @@
           <div class="reveal-slide">
             <img src="assets/unfolding.jpg" alt="طريقة فتح الحقيبة">
           </div>
-          <div class="reveal-slide">
-            <img src="assets/hero.jpg" alt="تصميم الحقيبة الفاخر">
-          </div>
 
           <div class="reveal-slide">
             <img src="assets/New folder/aaaaw.jpg" alt="عرض تفصيلي للحقيبة">
@@ -134,6 +138,19 @@
         </div>
         <!-- مؤشرات الانتقال (Dots) -->
         <div class="reveal-slider-dots" id="revealSliderDots"></div>
+        <!-- أزرار التنقل (Arrows) -->
+        <button class="reveal-nav-btn prev" id="revealPrevBtn" aria-label="السابق">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="reveal-nav-btn next" id="revealNextBtn" aria-label="التالي">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
       
       <div class="reveal-content">
@@ -226,13 +243,6 @@
             </div>
           </div>
           
-          <!-- بطاقة الصورة 4 -->
-          <div class="carousel-card">
-            <img src="assets/hero.jpg" alt="تفاصيل الحقيبة الذكية">
-            <div class="card-overlay">
-              <p>تفاصيل جلدية فاخرة وخياطة متينة</p>
-            </div>
-          </div>
         </div>
       </div>
       

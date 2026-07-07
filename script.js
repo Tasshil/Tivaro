@@ -156,11 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // الانتقال لبطاقة محددة
     function scrollToIndex(index) {
       const maxScrollable = track.scrollWidth - track.parentElement.clientWidth;
-      
-      // في اتجاه RTL، نتحرك بقيم موجبة بدلاً من سالبة أو العكس بناءً على متصفح المستخدم
-      // لتسهيل ذلك سنعتمد على نظام الترجمة العادي مع التحقق من الاتجاه
-      const isRTL = document.dir === 'rtl';
-      const directionMultiplier = isRTL ? 1 : -1;
+      const directionMultiplier = -1;
       
       let targetTranslate = directionMultiplier * index * cardWidth;
       
@@ -171,11 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = index;
       }
       
-      if (isRTL) {
-        if (targetTranslate < 0) targetTranslate = 0;
-      } else {
-        if (targetTranslate > 0) targetTranslate = 0;
-      }
+      if (targetTranslate > 0) targetTranslate = 0;
+      if (targetTranslate < -maxScrollable) targetTranslate = -maxScrollable;
       
       currentTranslate = targetTranslate;
       prevTranslate = currentTranslate;
@@ -219,15 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // الحدود
       const maxScrollable = track.scrollWidth - track.parentElement.clientWidth;
-      const isRTL = document.dir === 'rtl';
       
-      if (isRTL) {
-        if (currentTranslate < 0) currentTranslate = 0;
-        if (currentTranslate > maxScrollable) currentTranslate = maxScrollable;
-      } else {
-        if (currentTranslate > 0) currentTranslate = 0;
-        if (currentTranslate < -maxScrollable) currentTranslate = -maxScrollable;
-      }
+      if (currentTranslate > 0) currentTranslate = 0;
+      if (currentTranslate < -maxScrollable) currentTranslate = -maxScrollable;
       
       track.style.transform = `translateX(${currentTranslate}px)`;
     }
@@ -713,6 +700,27 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoSlide();
       });
     });
+
+    // أزرار التنقل بالأسهم (Arrow Navigation Buttons)
+    const prevRevealBtn = document.getElementById('revealPrevBtn');
+    const nextRevealBtn = document.getElementById('revealNextBtn');
+    
+    if (prevRevealBtn && nextRevealBtn) {
+      prevRevealBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        let prevIndex = currentRevealIndex - 1;
+        if (prevIndex < 0) prevIndex = totalRevealSlides - 1;
+        showRevealSlide(prevIndex);
+        startAutoSlide();
+      });
+      
+      nextRevealBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        let nextIndex = (currentRevealIndex + 1) % totalRevealSlides;
+        showRevealSlide(nextIndex);
+        startAutoSlide();
+      });
+    }
 
     // Touch & Mouse Drag
     revealTrack.addEventListener('mousedown', dragRevealStart);
