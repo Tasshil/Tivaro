@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 1,
       title: 'حقيبة واحدة (1)',
       subtitle: 'الأساسية اليومية',
-      price: 1500,
+      price: 1800,
       originalPrice: 2500,
       bagCount: 1,
       discountText: ''
@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 2,
       title: 'حقيبتين (2)',
       subtitle: 'الراحة المزدوجة',
-      price: 2400,
+      price: 2900,
       originalPrice: 5000,
       bagCount: 2,
-      discountText: 'خصم 50% على الثانية'
+      discountText: 'وفر 700 دج! 🔥'
     },
     3: {
       id: 3,
       title: '3 حقائب (عرض خاص)',
       subtitle: 'مجموعة التوفير الأكبر',
-      price: 2900,
+      price: 3200,
       originalPrice: 4500,
       bagCount: 3,
-      discountText: '3 قطع بـ 2900 دج فقط! 🔥'
+      discountText: '3 قطع بـ 3200 دج فقط! 🔥'
     }
   };
 
