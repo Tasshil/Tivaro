@@ -352,17 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error('فشل الإرسال لجوجل شيت:', err));
       }
 
-      // Track Facebook Pixel if present
-      if (typeof fbq === 'function') {
-        fbq('track', 'Purchase', {
-          value: pkg.price,
-          currency: 'DZD',
-          content_name: 'مرآة زينة مضيئة للسيارة LED',
-          content_type: 'product',
-          num_items: pkg.qty
-        });
-      }
-
       // Show Success Modal after simulated delay
       setTimeout(() => {
         submitBtn.disabled = false;
@@ -379,13 +368,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close Success Modal & Trigger Purchase Event on "تم، شكراً لكم" button
+  // Close Success Modal & Trigger Purchase Event ONLY on "تم، شكراً لكم" button
+  let purchaseTracked = false;
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
       const pkg = packages[selectedPackageId];
       
-      // إرسال حدث الشراء لفيسبوك بيكسل عند النقر على زر تم شكراً لكم
-      if (typeof fbq === 'function') {
+      // إرسال حدث الشراء لفيسبوك بيكسل حصرياً عند النقر على زر تم شكراً لكم
+      if (typeof fbq === 'function' && !purchaseTracked) {
         fbq('track', 'Purchase', {
           value: pkg ? pkg.price : 4900,
           currency: 'DZD',
@@ -393,7 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
           content_type: 'product',
           num_items: pkg ? pkg.qty : 2
         });
-        console.log('Facebook Pixel Purchase event tracked on "تم، شكراً لكم" click.');
+        purchaseTracked = true;
+        console.log('Facebook Pixel Purchase event tracked successfully on "تم، شكراً لكم" click.');
       }
       
       successModal.classList.remove('open');
