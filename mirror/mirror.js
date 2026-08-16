@@ -379,9 +379,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close Success Modal
+  // Close Success Modal & Trigger Purchase Event on "تم، شكراً لكم" button
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
+      const pkg = packages[selectedPackageId];
+      
+      // إرسال حدث الشراء لفيسبوك بيكسل عند النقر على زر تم شكراً لكم
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          value: pkg ? pkg.price : 4900,
+          currency: 'DZD',
+          content_name: 'مرآة زينة مضيئة للسيارة LED',
+          content_type: 'product',
+          num_items: pkg ? pkg.qty : 2
+        });
+        console.log('Facebook Pixel Purchase event tracked on "تم، شكراً لكم" click.');
+      }
+      
       successModal.classList.remove('open');
       document.body.style.overflow = '';
     });
