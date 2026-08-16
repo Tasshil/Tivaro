@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIVARO | مرآة زينة مضيئة للسيارة بتقنية LED اللمسية</title>
-  <meta name="description" content="مرآة زينة ذكية مضيئة لشماسة السيارة بتقنية LED اللمسية بثلاثة أوضاع إضاءة. إطلالة مثالية ومكياج احترافي داخل سيارتك في أي وقت.">
+  <title>TIVARO | حامل طنجرة الأكل للرحلات العائلية</title>
+  <meta name="description" content="حامل طنجرة الأكل المبطن للرحلات العائلية والنزهات. قماش متين عازل للحرارة لحمل وتثبيت القدور بأمان وسهولة تامة.">
   
   <!-- Favicon / Meta -->
-  <meta name="theme-color" content="#FFF1F3">
+  <meta name="theme-color" content="#FFF7ED">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="mirror.css?v=1.3">
+  <link rel="stylesheet" href="potporter.css?v=1.0">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -32,7 +32,6 @@
 </head>
 <body>
 
-
   <!-- الهيدر / شريط التنقل -->
   <header>
     <div class="logo-wrapper">
@@ -46,7 +45,7 @@
         <circle cx="20" cy="21" r="1"></circle>
         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
       </svg>
-      <span>اطلبي الآن</span>
+      <span>اطلب الآن</span>
     </a>
   </header>
 
@@ -56,37 +55,37 @@
       <div class="hero-text-col">
         <div class="hero-tag">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
           </svg>
-          <span>إضاءة هوليودية فاخرة لسيارتك ✨</span>
+          <span>الحل المثالي للرحلات والنزهات 🍲</span>
         </div>
 
         <h1 class="hero-title">
-          مرآة زينة مضيئة للسيارة<br>
-          بإضاءة <span class="highlight-pink">LED ذكية</span> ومكياج <span class="highlight-blue">مثالي</span>
+          حامل طنجرة الأكل<br>
+          <span class="highlight-orange">للرحلات العائلية</span> والنزهات
         </h1>
 
         <p class="hero-subtitle">
-          تثبت بسهولة على شماسة السيارة وتمنحك 3 درجات إضاءة احترافية بنقرة لمس واحدة، لتتألقي بإطلالة مثالية وتعديل مكياجك في أي وقت حتى في الليل.
+          تصميم قماشي مبطن ومتين بمقابض قوية لحمل ونقل أواني الطبخ وطناجر الأكل بكل أمان وسهولة، يحافظ على الحرارة ويمنع انسكاب الطعام في السيارة.
         </p>
 
         <!-- بطاقة السعر الفوري -->
         <div class="hero-pricing-box">
           <div class="price-main">
-            <span class="current-price">2900 دج</span>
-            <span class="old-price">3900 دج</span>
+            <span class="current-price">1500 دج</span>
+            <span class="old-price">2000 دج</span>
           </div>
-          <span class="discount-pill">خصم 25% اليوم</span>
+          <span class="discount-pill">عرض خاص اليوم</span>
         </div>
 
         <!-- زر الطلب المباشر -->
-        <a href="#orderSection" class="btn-cta-blue">
+        <a href="#orderSection" class="btn-cta-orange">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span>اطلبي الآن - الدفع عند الاستلام</span>
+          <span>اطلب الآن - الدفع عند الاستلام</span>
         </a>
 
         <!-- عداد التوصيل السريع -->
@@ -99,164 +98,169 @@
         </div>
       </div>
 
-      <!-- صورة المنتج في السيارة -->
+      <!-- صورة ومصغرات المنتج في الهيرو -->
       <div class="hero-image-box">
         <div class="hero-img-frame">
-          <img src="assets/mirror/mirror_selfie.jpg" alt="مرآة سيارة مضيئة Tivaro LED">
-          <div class="glow-overlay-border"></div>
+          <img id="mainHeroImg" src="assets/pot_in_carrier.jpg" alt="حامل طنجرة الأكل للرحلات العائلية">
+        </div>
+
+        <!-- مصغرات التبديل السريع بين الصور -->
+        <div class="hero-thumbnails-row">
+          <div class="hero-thumb active" data-img="assets/pot_in_carrier.jpg">
+            <img src="assets/pot_in_carrier.jpg" alt="الطنجرة داخل الحامل">
+          </div>
+          <div class="hero-thumb" data-img="assets/pot_flat.jpg">
+            <img src="assets/pot_flat.jpg" alt="الحامل مفرود ومطوي">
+          </div>
+          <div class="hero-thumb" data-img="assets/pot_carrier.png">
+            <img src="assets/pot_carrier.png" alt="تشكيلة الألوان">
+          </div>
         </div>
 
         <!-- بادج ميزة عائم علوي -->
         <div class="floating-badge badge-top">
-          <div class="badge-icon-pink">
+          <div class="badge-icon-warm">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
           <div>
-            <div class="badge-text-title">3 درجات إضاءة</div>
-            <div class="badge-text-sub">تحكم ذكي باللمس</div>
+            <div class="badge-text-title">قماش متين ومبطن</div>
+            <div class="badge-text-sub">عازل ومقاوم للحرارة</div>
           </div>
         </div>
 
         <!-- بادج ميزة عائم سفلي -->
         <div class="floating-badge badge-bottom">
-          <div class="badge-icon-pink">
+          <div class="badge-icon-warm">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="6" width="18" height="12" rx="2"></rect>
-              <path d="M23 13v-2"></path>
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
             </svg>
           </div>
           <div>
-            <div class="badge-text-title">شحن Type-C</div>
-            <div class="badge-text-sub">بطارية تدوم طويلاً</div>
+            <div class="badge-text-title">مقابض يد معززة</div>
+            <div class="badge-text-sub">حمل مريح ومحكم</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم المقارنة المرئية (قبل وبعد) -->
-  <section class="comparison-section">
+  <!-- قسم صور وتفاصيل الاستخدام (Product Showcase) -->
+  <section class="product-showcase-section">
     <div class="section-header">
-      <span class="section-pill">الفرق الحقيقي</span>
-      <h2 class="section-title">لماذا تحتاجين مرآة Tivaro المضيئة؟</h2>
-      <p class="section-desc">مقارنة بسيطة توضح الفرق بين مرآة السيارة العادية الباهتة ومرآة LED الذكية</p>
+      <span class="section-pill">تصميم ذكي وعملي</span>
+      <h2 class="section-title">كيف يجعل نزهاتكم العائلية أسهل؟</h2>
+      <p class="section-desc">صور توضح طريقة عمل الحامل وكيفية استيعابه للطناجر والقدور بأمان</p>
     </div>
 
-    <div class="comparison-wrapper">
-      <div class="comparison-image-container">
-        <img src="assets/mirror/mirror_compare.png" alt="مقارنة بين مرآة السيارة العادية ومرآة تيفارو المضيئة">
+    <div class="showcase-grid">
+      <!-- بطاقة 1: الطنجرة داخل الحامل -->
+      <div class="showcase-card">
+        <div class="showcase-img-box">
+          <img src="assets/pot_in_carrier.jpg" alt="تثبيت الطنجرة ونقلها بأمان">
+        </div>
+        <div class="showcase-card-body">
+          <h3 class="showcase-card-title">🍲 حمل آمن ومحكم لمختلف القدور</h3>
+          <p class="showcase-card-desc">يتسع لمختلف أحجام طناجر الطبخ والصواني العائلية، يمنع انسكاب الطعام أو حرق اليدين أثناء النقل.</p>
+        </div>
       </div>
 
-      <div class="comparison-cards-grid">
-        <div class="comparison-card bad">
-          <div class="status-icon bad">✕</div>
-          <div class="comparison-text">
-            <h4>مرآة السيارة التقليدية</h4>
-            <p>صغيرة، إضاءتها منعدمة أو ضعيفة، وتسبب أخطاء في توزيع المكياج وأحمر الشفاه.</p>
-          </div>
+      <!-- بطاقة 2: الحامل مفتوح ومطوي -->
+      <div class="showcase-card">
+        <div class="showcase-img-box">
+          <img src="assets/pot_flat.jpg" alt="سحاب كامل وطي سهل">
         </div>
-
-        <div class="comparison-card good">
-          <div class="status-icon good">✓</div>
-          <div class="comparison-text">
-            <h4>مرآة Tivaro LED الذكية</h4>
-            <p>إضاءة ناصعة ومتوازنة بدون ظلال تكشف أدق التفاصيل مع وضوح كريستالي HD فائق.</p>
-          </div>
+        <div class="showcase-card-body">
+          <h3 class="showcase-card-title">⚡ سحاب كامل وطي سريع</h3>
+          <p class="showcase-card-desc">يفتح بالكامل ليسمح بوضع الطنجرة وإخراجها بسهولة، ويطوى بشكل مسطح بعد الاستخدام لتوفير المساحة وسهولة الغسيل.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- محاكي أوضاع الإضاءة الثلاثة (Interactive Lighting Simulator) -->
-  <section class="modes-section">
+  <!-- قسم استعراض الألوان المتوفرة (في بطاقة واحدة أفقية بمربعات بيضاء) -->
+  <section class="colors-showcase-section">
     <div class="section-header">
-      <span class="section-pill">تقنية متطورة</span>
-      <h2 class="section-title">3 أوضاع إضاءة مخصصة لكل مناسبة</h2>
-      <p class="section-desc">اضغطي على الأزرار لاختبار درجات الإضاءة المختلفة باللمس</p>
+      <span class="section-pill">تشكيلة ألوان متميزة</span>
+      <h2 class="section-title">الألوان العصرية المتوفرة</h2>
     </div>
 
-    <div class="modes-container">
-      <div class="modes-buttons">
-        <button class="mode-btn active" data-mode="white">
-          <span class="mode-dot white"></span>
-          <span class="mode-btn-title">أبيض ناصع</span>
-          <span class="mode-btn-desc">Cool White</span>
-        </button>
-
-        <button class="mode-btn" data-mode="warm">
-          <span class="mode-dot warm"></span>
-          <span class="mode-btn-title">ضوء دافئ</span>
-          <span class="mode-btn-desc">Warm Light</span>
-        </button>
-
-        <button class="mode-btn" data-mode="natural">
-          <span class="mode-dot natural"></span>
-          <span class="mode-btn-title">ضوء طبيعي</span>
-          <span class="mode-btn-desc">Natural Daylight</span>
-        </button>
+    <div class="colors-unified-card">
+      <div class="color-item-horizontal">
+        <span class="color-swatch-checkered red"></span>
+        <span class="color-card-name">أحمر</span>
       </div>
 
-      <div class="mode-preview-box mode-white" id="modePreviewBox">
-        <p class="mode-status-text" id="modeStatusText">
-          وضع الإضاءة البيضاء الباردة (Cool White): مثالي لرؤية أدق تفاصيل الماكياج وتنسيق الإطلالة في النهار.
-        </p>
+      <div class="color-divider"></div>
+
+      <div class="color-item-horizontal">
+        <span class="color-swatch-checkered orange"></span>
+        <span class="color-card-name">برتقالي</span>
+      </div>
+
+      <div class="color-divider"></div>
+
+      <div class="color-item-horizontal">
+        <span class="color-swatch-checkered black"></span>
+        <span class="color-card-name">أسود</span>
+      </div>
+
+      <div class="color-divider"></div>
+
+      <div class="color-item-horizontal">
+        <span class="color-swatch-checkered blue"></span>
+        <span class="color-card-name">أزرق</span>
       </div>
     </div>
   </section>
 
-  <!-- شبكة المميزات السريعة -->
+  <!-- قسم المميزات في بطاقة واحدة أفقية -->
   <section class="features-section">
-    <div class="features-grid">
-      <div class="feature-card">
+    <div class="features-unified-card">
+      <div class="feature-item">
         <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
-        <h3 class="feature-title">أزرار لمس ذكية</h3>
-        <p class="feature-desc">تحكمي في تشغيل الإضاءة وتبديل الأوضاع ورفع أو خفض السطوع بلمسة واحدة.</p>
+        <h3 class="feature-title">حماية وأمان تام</h3>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-            <polyline points="17 2 12 7 7 2"></polyline>
-          </svg>
-        </div>
-        <h3 class="feature-title">تثبيت فوري بدون أدوات</h3>
-        <p class="feature-desc">أحزمة تثبيت مرنة وقوية تلائم شماسة جميع أنواع السيارات في ثوانٍ معدودة.</p>
-      </div>
+      <div class="feature-divider"></div>
 
-      <div class="feature-card">
+      <div class="feature-item">
         <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
-        </div>
-        <h3 class="feature-title">بطارية ليثيوم قابلة للشحن</h3>
-        <p class="feature-desc">شحن سريع عبر منفذ USB Type-C يدوم لأسابيع من الاستخدام دون الحاجة لتغيير بطاريات.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 14 14"></polyline>
           </svg>
         </div>
-        <h3 class="feature-title">زجاج فائق النقاء HD</h3>
-        <p class="feature-desc">انعكاس كريستالي صافٍ بدون أي تشويش أو انحناء لتجربة رؤية واقعية وفاخرة.</p>
+        <h3 class="feature-title">سحاب قوي ومحكم</h3>
+      </div>
+
+      <div class="feature-divider"></div>
+
+      <div class="feature-item">
+        <div class="feature-icon-wrapper">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+            <polyline points="17 2 12 7 7 2"></polyline>
+          </svg>
+        </div>
+        <h3 class="feature-title">سعة لمختلف الأحجام</h3>
+      </div>
+
+      <div class="feature-divider"></div>
+
+      <div class="feature-item">
+        <div class="feature-icon-wrapper">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l6 6"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">سهولة الغسيل والتخزين</h3>
       </div>
     </div>
   </section>
@@ -270,24 +274,45 @@
         <p>يرجى إدخال معلوماتك لتوصيل طلبيتك في أقرب وقت</p>
       </div>
 
-      <!-- اختيار العرض والكمية (عرض قطعة وقطعتين) -->
+      <!-- اختيار العرض والكمية (3 عروض في صف أفقي) -->
       <div class="packages-selector-grid">
         <div class="package-option-card" data-package="1">
-          <span class="pkg-title">مرآة واحدة (1)</span>
-          <div class="pkg-price">2900 دج</div>
+          <span class="pkg-title">قطعة واحدة (1)</span>
+          <div class="pkg-price">1500 دج</div>
           <span class="pkg-sub">الطلب الأساسي</span>
         </div>
 
         <div class="package-option-card selected" data-package="2">
           <span class="package-badge-tag">الأكثر طلباً 🔥</span>
-          <span class="pkg-title">مرآتان (2 قطع)</span>
-          <div class="pkg-price">4900 دج</div>
-          <span class="pkg-sub">وفر 900 دج!</span>
+          <span class="pkg-title">قطعتين (2 قطع)</span>
+          <div class="pkg-price">2500 دج</div>
+          <span class="pkg-sub">وفر 500 دج!</span>
+        </div>
+
+        <div class="package-option-card" data-package="3">
+          <span class="package-badge-tag">عرض خاص 🎁</span>
+          <span class="pkg-title">3 قطع</span>
+          <div class="pkg-price">3200 دج</div>
+          <span class="pkg-sub">وفر 1300 دج!</span>
         </div>
       </div>
 
       <!-- نموذج الطلب -->
-      <form class="checkout-form" id="mirrorOrderForm">
+      <form class="checkout-form" id="potPorterOrderForm">
+        <!-- اختيار الألوان لكل قطعة -->
+        <div class="color-picker-group">
+          <div class="color-picker-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            </svg>
+            <span>اختيار الألوان المطلوبة:</span>
+          </div>
+          <div id="colorPickerContainer">
+            <!-- يتم توليد حقول الألوان ديناميكياً بحسب عدد القطع -->
+          </div>
+        </div>
+
         <!-- الاسم ورقم الهاتف -->
         <div class="form-row">
           <div class="form-group">
@@ -417,7 +442,7 @@
         <div class="order-summary-box">
           <div class="summary-row">
             <span>المنتج:</span>
-            <span id="summaryPackageName">مرآتان (2 قطع)</span>
+            <span id="summaryPackageName">قطعتين (2 قطع)</span>
           </div>
           <div class="summary-row">
             <span>الكمية:</span>
@@ -425,11 +450,11 @@
           </div>
           <div class="summary-row">
             <span>شركة التوصيل:</span>
-            <span style="font-weight: 700; color: var(--baby-blue-deep);">ZR Express 🚚</span>
+            <span style="font-weight: 700; color: var(--primary);">ZR Express 🚚</span>
           </div>
           <div class="summary-row">
             <span>المجموع الإجمالي:</span>
-            <span class="total-amount" id="summaryTotal">4900 دج</span>
+            <span class="total-amount" id="summaryTotal">2500 دج</span>
           </div>
         </div>
 
@@ -483,11 +508,15 @@
       <div class="receipt-box">
         <div class="receipt-item">
           <span>رقم الطلب:</span>
-          <strong id="receiptOrderNum">TIV-MIR-123456</strong>
+          <strong id="receiptOrderNum">TIV-POT-123456</strong>
         </div>
         <div class="receipt-item">
           <span>العرض:</span>
-          <span id="receiptPackage">مرآتان (2 قطع)</span>
+          <span id="receiptPackage">قطعتين (2 قطع)</span>
+        </div>
+        <div class="receipt-item">
+          <span>الألوان المختارة:</span>
+          <span id="receiptColors">أحمر + برتقالي</span>
         </div>
         <div class="receipt-item">
           <span>عنوان التوصيل:</span>
@@ -495,7 +524,7 @@
         </div>
         <div class="receipt-item">
           <span>المبلغ المطلوب عند الاستلام:</span>
-          <span id="receiptTotal" style="color: var(--baby-blue-deep); font-weight: 900;">4900 دج</span>
+          <span id="receiptTotal" style="color: var(--primary); font-weight: 900;">2500 دج</span>
         </div>
       </div>
 
@@ -505,10 +534,10 @@
 
   <!-- الفوتر -->
   <footer>
-    <p>© 2026 متجر TIVARO - جميع الحقوق محفوظة | مرآة زينة مضيئة للسيارة</p>
+    <p>© 2026 متجر TIVARO - جميع الحقوق محفوظة | حامل طنجرة الأكل للرحلات</p>
   </footer>
 
   <!-- Script File -->
-  <script src="mirror.js"></script>
+  <script src="potporter.js?v=1.0"></script>
 </body>
 </html>
