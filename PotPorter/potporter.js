@@ -389,6 +389,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // Store in localStorage
       localStorage.setItem('lastPotPorterOrder', JSON.stringify(orderDetails));
 
+      // إرسال حدث الشراء لفيسبوك بيكسل عند النقر على زر طلب المنتج
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          value: pkg ? pkg.price : 2500,
+          currency: 'DZD',
+          content_name: 'حامل طنجرة الأكل للرحلات العائلية',
+          content_type: 'product',
+          num_items: pkg ? pkg.qty : 2
+        });
+        console.log('Facebook Pixel Purchase event tracked successfully on "طلب المنتج".');
+      }
+
       // Send to Google Sheets
       if (GOOGLE_SHEETS_WEBHOOK_URL) {
         fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
@@ -420,25 +432,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close Success Modal & Trigger Purchase Event ONLY on "تم، شكراً لكم" button
-  let purchaseTracked = false;
+  // Close Success Modal
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
-      const pkg = packages[selectedPackageId];
-      
-      // إرسال حدث الشراء لفيسبوك بيكسل حصرياً عند النقر على زر تم شكراً لكم
-      if (typeof fbq === 'function' && !purchaseTracked) {
-        fbq('track', 'Purchase', {
-          value: pkg ? pkg.price : 2500,
-          currency: 'DZD',
-          content_name: 'حامل طنجرة الأكل للرحلات العائلية',
-          content_type: 'product',
-          num_items: pkg ? pkg.qty : 2
-        });
-        purchaseTracked = true;
-        console.log('Facebook Pixel Purchase event tracked successfully on "تم، شكراً لكم" click.');
-      }
-      
       successModal.classList.remove('open');
       document.body.style.overflow = '';
     });
