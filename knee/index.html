@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIVARO | مرآة زينة مضيئة للسيارة بتقنية LED اللمسية</title>
-  <meta name="description" content="مرآة زينة ذكية مضيئة لشماسة السيارة بتقنية LED اللمسية بثلاثة أوضاع إضاءة. إطلالة مثالية ومكياج احترافي داخل سيارتك في أي وقت.">
+  <title>Knee Support | داعم ومشد الركبة الطبي TIVARO</title>
+  <meta name="description" content="مشد وداعم الركبة المتطور بأحزمة ضغط قابلة للتعديل ونسيج ثلاثي الأبعاد 3D. لتثبيت صابونة الركبة، تخفيف آلام المفاصل والخشونة، وتوفير حماية كاملة أثناء المشي والرياضة.">
   
   <!-- Favicon / Meta -->
-  <meta name="theme-color" content="#FFF1F3">
+  <meta name="theme-color" content="#ECFDF5">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="mirror.css?v=1.3">
+  <link rel="stylesheet" href="knee.css?v=2.0">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -32,7 +32,6 @@
 </head>
 <body>
 
-
   <!-- الهيدر / شريط التنقل -->
   <header>
     <div class="logo-wrapper">
@@ -46,37 +45,96 @@
         <circle cx="20" cy="21" r="1"></circle>
         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
       </svg>
-      <span>اطلبي الآن</span>
+      <span>اطلب الآن</span>
     </a>
   </header>
 
   <!-- القسم الرئيسي (Hero Section) -->
   <section class="hero-section">
     <div class="hero-container">
-      <div class="hero-text-col">
-        <div class="hero-tag">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          <span>إضاءة هوليودية فاخرة لسيارتك ✨</span>
+      <!-- معرض صور وسلايدر المنتج -->
+      <div class="hero-image-box">
+        <h3 class="hero-image-tagline">دعامة ركبة مريحة تمنحك دعمًا وثباتًا أثناء الحركة اليومية.</h3>
+        
+        <div class="hero-slider-container">
+          <div class="hero-slider-wrapper" id="heroSliderWrapper">
+            <div class="hero-slide active">
+              <img src="assets/knee/media_1787662614576.png" alt="مشد وداعم الركبة الطبي Tivaro">
+            </div>
+            <div class="hero-slide">
+              <img src="assets/knee/media_1787662621408.jpg" alt="تفاصيل أحزمة التثبيت ونسيج 3D">
+            </div>
+            <div class="hero-slide">
+              <img src="assets/knee/media_1787662626362.jpg" alt="حماية صابونة الركبة ومقاومة التآكل">
+            </div>
+            <div class="hero-slide">
+              <img src="assets/knee/media_1787662630389.jpg" alt="مرونة عالية تحمي العضلات من التمزق">
+            </div>
+            <div class="hero-slide">
+              <img src="assets/knee/media_1787662634475.png" alt="تدفئة علاجية وحماية المفصل من البرودة">
+            </div>
+          </div>
+          
+          <!-- أزرار التنقل -->
+          <button type="button" class="slider-arrow slider-prev" id="sliderPrevBtn" aria-label="الصورة السابقة">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <button type="button" class="slider-arrow slider-next" id="sliderNextBtn" aria-label="الصورة التالية">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- مؤشرات النقاط -->
+          <div class="slider-dots" id="sliderDots">
+            <span class="slider-dot active" data-index="0"></span>
+            <span class="slider-dot" data-index="1"></span>
+            <span class="slider-dot" data-index="2"></span>
+            <span class="slider-dot" data-index="3"></span>
+            <span class="slider-dot" data-index="4"></span>
+          </div>
         </div>
 
-        <h1 class="hero-title">
-          مرآة زينة مضيئة للسيارة<br>
-          بإضاءة <span class="highlight-pink">LED ذكية</span> ومكياج <span class="highlight-blue">مثالي</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          تثبت بسهولة على شماسة السيارة وتمنحك 3 درجات إضاءة احترافية بنقرة لمس واحدة، لتتألقي بإطلالة مثالية وتعديل مكياجك في أي وقت حتى في الليل.
-        </p>
-
-        <!-- بطاقة السعر الفوري -->
-        <div class="hero-pricing-box">
-          <div class="price-main">
-            <span class="current-price">2900 دج</span>
-            <span class="old-price">3900 دج</span>
+        <!-- شريط المصغرات -->
+        <div class="hero-thumbnails-row" id="heroThumbnails">
+          <div class="thumb-item active" data-index="0">
+            <img src="assets/knee/media_1787662614576.png" alt="صورة 1">
           </div>
-          <span class="discount-pill">خصم 25% اليوم</span>
+          <div class="thumb-item" data-index="1">
+            <img src="assets/knee/media_1787662621408.jpg" alt="صورة 2">
+          </div>
+          <div class="thumb-item" data-index="2">
+            <img src="assets/knee/media_1787662626362.jpg" alt="صورة 3">
+          </div>
+          <div class="thumb-item" data-index="3">
+            <img src="assets/knee/media_1787662630389.jpg" alt="صورة 4">
+          </div>
+          <div class="thumb-item" data-index="4">
+            <img src="assets/knee/media_1787662634475.png" alt="صورة 5">
+          </div>
+        </div>
+
+        <!-- بطاقة السعر الفوري المدمجة مع المؤقت (أسفل الشرائح مباشرة) -->
+        <div class="hero-pricing-box">
+          <div class="price-header-row">
+            <div class="price-main">
+              <span class="current-price">2200 دج</span>
+              <span class="price-target-label">لـركبتين (2 قطع)</span>
+              <span class="old-price">3400 دج</span>
+            </div>
+            <span class="discount-pill">خصم محدود اليوم</span>
+          </div>
+
+          <!-- عداد التوصيل السريع المدمج -->
+          <div class="shipping-timer-bar">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>ينتهي العرض الخاص خلال: <strong id="countdownTimer">9 ساعات و 38 دقيقة</strong></span>
+          </div>
         </div>
 
         <!-- زر الطلب المباشر -->
@@ -86,60 +144,8 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span>اطلبي الآن - الدفع عند الاستلام</span>
+          <span>اطلب الآن - الدفع عند الاستلام</span>
         </a>
-
-        <!-- عداد التوصيل السريع -->
-        <div class="shipping-timer-bar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          <span>ينتهي العرض خلال: <strong id="countdownTimer">3 ساعات و 45 دقيقة</strong></span>
-        </div>
-      </div>
-
-      <!-- صورة المنتج في السيارة -->
-      <div class="hero-image-box">
-        <div class="hero-img-frame">
-          <img src="assets/mirror/mirror_selfie.jpg" alt="مرآة سيارة مضيئة Tivaro LED">
-          <div class="glow-overlay-border"></div>
-        </div>
-
-        <!-- بادج ميزة عائم علوي -->
-        <div class="floating-badge badge-top">
-          <div class="badge-icon-pink">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-          </div>
-          <div>
-            <div class="badge-text-title">3 درجات إضاءة</div>
-            <div class="badge-text-sub">تحكم ذكي باللمس</div>
-          </div>
-        </div>
-
-        <!-- بادج ميزة عائم سفلي -->
-        <div class="floating-badge badge-bottom">
-          <div class="badge-icon-pink">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="6" width="18" height="12" rx="2"></rect>
-              <path d="M23 13v-2"></path>
-            </svg>
-          </div>
-          <div>
-            <div class="badge-text-title">شحن Type-C</div>
-            <div class="badge-text-sub">بطارية تدوم طويلاً</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -148,115 +154,70 @@
   <section class="comparison-section">
     <div class="section-header">
       <span class="section-pill">الفرق الحقيقي</span>
-      <h2 class="section-title">لماذا تحتاجين مرآة Tivaro المضيئة؟</h2>
-      <p class="section-desc">مقارنة بسيطة توضح الفرق بين مرآة السيارة العادية الباهتة ومرآة LED الذكية</p>
+      <h2 class="section-title">لماذا يعتبر مشد TIVARO الخيار الأفضل لمفاصلك؟</h2>
+      <p class="section-desc">مقارنة توضح الفرق بين المشدات العادية وداعم الركبة الطبي المتطور من TIVARO</p>
     </div>
 
     <div class="comparison-wrapper">
-      <div class="comparison-image-container">
-        <img src="assets/mirror/mirror_compare.png" alt="مقارنة بين مرآة السيارة العادية ومرآة تيفارو المضيئة">
-      </div>
-
-      <div class="comparison-cards-grid">
-        <div class="comparison-card bad">
-          <div class="status-icon bad">✕</div>
-          <div class="comparison-text">
-            <h4>مرآة السيارة التقليدية</h4>
-            <p>صغيرة، إضاءتها منعدمة أو ضعيفة، وتسبب أخطاء في توزيع المكياج وأحمر الشفاه.</p>
+      <div class="comparison-dual-images">
+        <div class="comparison-side bad">
+          <div class="side-img-box">
+            <img src="assets/knee/traditional_knee.jpg" alt="المشدات التقليدية الرخيصة">
+          </div>
+          <div class="comparison-card bad">
+            <div class="status-icon bad">✕</div>
+            <div class="comparison-text">
+              <h4>المشدات التقليدية الرخيصة</h4>
+            </div>
           </div>
         </div>
 
-        <div class="comparison-card good">
-          <div class="status-icon good">✓</div>
-          <div class="comparison-text">
-            <h4>مرآة Tivaro LED الذكية</h4>
-            <p>إضاءة ناصعة ومتوازنة بدون ظلال تكشف أدق التفاصيل مع وضوح كريستالي HD فائق.</p>
+        <div class="comparison-side good">
+          <div class="side-img-box">
+            <img src="assets/knee/media_1787662626362.jpg" alt="داعم الركبة المتطور TIVARO">
+          </div>
+          <div class="comparison-card good">
+            <div class="status-icon good">✓</div>
+            <div class="comparison-text">
+              <h4>داعم الركبة المتطور TIVARO</h4>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- محاكي أوضاع الإضاءة الثلاثة (Interactive Lighting Simulator) -->
-  <section class="modes-section">
+  <!-- قسم معرض تفاصيل الجودة -->
+  <section class="gallery-section">
     <div class="section-header">
-      <span class="section-pill">تقنية متطورة</span>
-      <h2 class="section-title">3 أوضاع إضاءة مخصصة لكل مناسبة</h2>
-      <p class="section-desc">اضغطي على الأزرار لاختبار درجات الإضاءة المختلفة باللمس</p>
+      <span class="section-pill">جودة التصنيع</span>
+      <h2 class="section-title">مصمم بأعلى معايير الراحة والمتانة</h2>
+      <p class="section-desc">خامات ممتازة مختارة بعناية لتمنحك أفضل تجربة دعم يومي ورياضي</p>
     </div>
 
-    <div class="modes-container">
-      <div class="modes-buttons">
-        <button class="mode-btn active" data-mode="white">
-          <span class="mode-dot white"></span>
-          <span class="mode-btn-title">أبيض ناصع</span>
-          <span class="mode-btn-desc">Cool White</span>
-        </button>
-
-        <button class="mode-btn" data-mode="warm">
-          <span class="mode-dot warm"></span>
-          <span class="mode-btn-title">ضوء دافئ</span>
-          <span class="mode-btn-desc">Warm Light</span>
-        </button>
-
-        <button class="mode-btn" data-mode="natural">
-          <span class="mode-dot natural"></span>
-          <span class="mode-btn-title">ضوء طبيعي</span>
-          <span class="mode-btn-desc">Natural Daylight</span>
-        </button>
-      </div>
-
-      <div class="mode-preview-box mode-white" id="modePreviewBox">
-        <p class="mode-status-text" id="modeStatusText">
-          وضع الإضاءة البيضاء الباردة (Cool White): مثالي لرؤية أدق تفاصيل الماكياج وتنسيق الإطلالة في النهار.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- شبكة المميزات السريعة -->
-  <section class="features-section">
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-          </svg>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="assets/knee/media_1787662621408.jpg" alt="أحزمة تثبيت مزدوجة ونسيج 3D تنفسي">
+        <div class="gallery-card-info">
+          <h4 class="gallery-card-title">أحزمة تثبيت مزدوجة</h4>
+          <p class="gallery-card-desc">أشرطة فيلكرو قوية تتيح لك تعديل مستوى الشد والضغط بما يناسب مقاسك تماماً.</p>
         </div>
-        <h3 class="feature-title">أزرار لمس ذكية</h3>
-        <p class="feature-desc">تحكمي في تشغيل الإضاءة وتبديل الأوضاع ورفع أو خفض السطوع بلمسة واحدة.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-            <polyline points="17 2 12 7 7 2"></polyline>
-          </svg>
+      <div class="gallery-card">
+        <img src="assets/knee/media_1787662630389.jpg" alt="مرونة عالية تمنع التمزق العضلي">
+        <div class="gallery-card-info">
+          <h4 class="gallery-card-title">مرونة فائقة مضادة للتمزق</h4>
+          <p class="gallery-card-desc">نسيج مطاطي متدرج يحمي العضلات والأوتار من الإجهاد الزائد أثناء الحركة والرياضة.</p>
         </div>
-        <h3 class="feature-title">تثبيت فوري بدون أدوات</h3>
-        <p class="feature-desc">أحزمة تثبيت مرنة وقوية تلائم شماسة جميع أنواع السيارات في ثوانٍ معدودة.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
+      <div class="gallery-card">
+        <img src="assets/knee/media_1787662634475.png" alt="تدفئة علاجية وحماية من البرودة">
+        <div class="gallery-card-info">
+          <h4 class="gallery-card-title">حماية من البرودة وتدفئة</h4>
+          <p class="gallery-card-desc">طبقة سميكة تحافظ على حرارة المفصل وتنشط الدورة الدموية لمنع التيبس والآلام.</p>
         </div>
-        <h3 class="feature-title">بطارية ليثيوم قابلة للشحن</h3>
-        <p class="feature-desc">شحن سريع عبر منفذ USB Type-C يدوم لأسابيع من الاستخدام دون الحاجة لتغيير بطاريات.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 14 14"></polyline>
-          </svg>
-        </div>
-        <h3 class="feature-title">زجاج فائق النقاء HD</h3>
-        <p class="feature-desc">انعكاس كريستالي صافٍ بدون أي تشويش أو انحناء لتجربة رؤية واقعية وفاخرة.</p>
       </div>
     </div>
   </section>
@@ -267,22 +228,21 @@
       <div class="order-card-header">
         <span class="section-pill">الدفع عند الاستلام</span>
         <h2>استمارة تأكيد الطلب السريع</h2>
-        <p>يرجى إدخال معلوماتك لتوصيل طلبيتك في أقرب وقت</p>
       </div>
 
       <!-- اختيار العرض والكمية (عرض قطعة وقطعتين) -->
       <div class="packages-selector-grid">
         <div class="package-option-card" data-package="1">
-          <span class="pkg-title">مرآة واحدة (1)</span>
-          <div class="pkg-price">2900 دج</div>
+          <span class="pkg-title">داعم ركبة واحد (1 قطعة)</span>
+          <div class="pkg-price">1500 دج</div>
           <span class="pkg-sub">الطلب الأساسي</span>
         </div>
 
         <div class="package-option-card selected" data-package="2">
           <span class="package-badge-tag">الأكثر طلباً 🔥</span>
-          <span class="pkg-title">مرآتان (2 قطع)</span>
-          <div class="pkg-price">4900 دج</div>
-          <span class="pkg-sub">وفر 900 دج!</span>
+          <span class="pkg-title">زوج داعم للركبتين (2 قطع)</span>
+          <div class="pkg-price">2200 دج</div>
+          <span class="pkg-sub">وفر 800 دج!</span>
         </div>
       </div>
 
@@ -417,7 +377,7 @@
         <div class="order-summary-box">
           <div class="summary-row">
             <span>المنتج:</span>
-            <span id="summaryPackageName">مرآتان (2 قطع)</span>
+            <span id="summaryPackageName">زوج داعم للركبتين (2 قطع)</span>
           </div>
           <div class="summary-row">
             <span>الكمية:</span>
@@ -425,11 +385,11 @@
           </div>
           <div class="summary-row">
             <span>شركة التوصيل:</span>
-            <span style="font-weight: 700; color: var(--baby-blue-deep);">ZR Express 🚚</span>
+            <span style="font-weight: 700; color: var(--green-deep);">ZR Express 🚚</span>
           </div>
           <div class="summary-row">
             <span>المجموع الإجمالي:</span>
-            <span class="total-amount" id="summaryTotal">4900 دج</span>
+            <span class="total-amount" id="summaryTotal">2200 دج</span>
           </div>
         </div>
 
@@ -438,23 +398,23 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>طلب المنتج</span>
+          <span>تأكيد الطلب الآن</span>
         </button>
 
-        <!-- علامات الثقة والأمان (في استقامة أفقية) -->
+        <!-- علامات الثقة والأمان -->
         <div class="trust-badges-row">
           <div class="trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
-            <span>ضمان واستبدال</span>
+            <span>ضمان الجودة والاستبدال</span>
           </div>
           <div class="trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="1" y="3" width="15" height="13"></rect>
               <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
             </svg>
-            <span>توصيل سريع</span>
+            <span>توصيل سريع لـ 58 ولاية</span>
           </div>
           <div class="trust-item">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -483,11 +443,11 @@
       <div class="receipt-box">
         <div class="receipt-item">
           <span>رقم الطلب:</span>
-          <strong id="receiptOrderNum">TIV-MIR-123456</strong>
+          <strong id="receiptOrderNum">TIV-KNE-123456</strong>
         </div>
         <div class="receipt-item">
           <span>العرض:</span>
-          <span id="receiptPackage">مرآتان (2 قطع)</span>
+          <span id="receiptPackage">زوج داعم للركبتين (2 قطع)</span>
         </div>
         <div class="receipt-item">
           <span>عنوان التوصيل:</span>
@@ -495,7 +455,7 @@
         </div>
         <div class="receipt-item">
           <span>المبلغ المطلوب عند الاستلام:</span>
-          <span id="receiptTotal" style="color: var(--baby-blue-deep); font-weight: 900;">4900 دج</span>
+          <span id="receiptTotal" style="color: var(--green-deep); font-weight: 900;">2200 دج</span>
         </div>
       </div>
 
@@ -505,10 +465,10 @@
 
   <!-- الفوتر -->
   <footer>
-    <p>© 2026 متجر TIVARO - جميع الحقوق محفوظة | مرآة زينة مضيئة للسيارة</p>
+    <p>© 2026 متجر TIVARO - جميع الحقوق محفوظة | مشد وداعم الركبة الطبي الرياضي</p>
   </footer>
 
   <!-- Script File -->
-  <script src="mirror.js"></script>
+  <script src="knee.js?v=2.0"></script>
 </body>
 </html>

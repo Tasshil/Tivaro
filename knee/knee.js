@@ -7,25 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- رابط جوجل شيت Webhook ---
   const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwWh1yCjF6mC-wMyYeH3nbDajCYgE3MbJlr_uwjZT_xsgDQBTIW5OeNXerSMBFbgTRbpw/exec';
 
-  // --- باقات وعروض مرآة السيارة المضيئة ---
+  // --- باقات وعروض مشد وداعم الركبة الطبي ---
   const packages = {
     1: {
       id: 1,
-      name: 'مرآة واحدة (1)',
+      name: 'داعم ركبة واحد (1 قطعة)',
       qty: 1,
-      price: 2900,
-      originalPrice: 3900,
+      price: 1500,
+      originalPrice: 2000,
       badge: 'الطلب الأساسي',
       shippingText: 'توصيل سريع'
     },
     2: {
       id: 2,
-      name: 'مرآتان (2 قطع)',
+      name: 'زوج داعم للركبتين (2 قطع)',
       qty: 2,
-      price: 4900,
-      originalPrice: 5800,
+      price: 2200,
+      originalPrice: 3400,
       badge: 'الأكثر طلباً 🔥',
-      shippingText: 'وفر 900 دج'
+      shippingText: 'وفر 800 دج'
     }
   };
 
@@ -85,6 +85,95 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000 * 60);
 
+  // --- Interactive Hero Image Slider ---
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const sliderDots = document.querySelectorAll('.slider-dot');
+  const sliderThumbs = document.querySelectorAll('.thumb-item');
+  const prevBtn = document.getElementById('sliderPrevBtn');
+  const nextBtn = document.getElementById('sliderNextBtn');
+  const sliderContainer = document.querySelector('.hero-slider-container');
+  let currentSlide = 0;
+  const totalSlides = heroSlides.length;
+
+  function goToSlide(index) {
+    if (totalSlides === 0) return;
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentSlide = index;
+
+    heroSlides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    sliderDots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    sliderThumbs.forEach((thumb, i) => {
+      if (i === currentSlide) {
+        thumb.classList.add('active');
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  }
+
+  sliderDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index'));
+      goToSlide(idx);
+    });
+  });
+
+  sliderThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const idx = parseInt(thumb.getAttribute('data-index'));
+      goToSlide(idx);
+    });
+  });
+
+  // Touch Swipe for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (sliderContainer) {
+    sliderContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    sliderContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        // swipe right (prev in RTL)
+        goToSlide(currentSlide - 1);
+      } else {
+        // swipe left (next in RTL)
+        goToSlide(currentSlide + 1);
+      }
+    }
+  }
+
   // Phone input filter (numbers only)
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -118,15 +207,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Initial package UI sync
+  updatePackageUI(selectedPackageId);
+
   // Lighting Mode Demo Buttons
   const modeBtns = document.querySelectorAll('.mode-btn');
   const modePreview = document.getElementById('modePreviewBox');
   const modeStatusText = document.getElementById('modeStatusText');
 
   const modeDescriptions = {
-    'white': 'وضع الإضاءة البيضاء الباردة (Cool White): مثالي لرؤية أدق تفاصيل الماكياج وتنسيق الإطلالة في النهار.',
-    'warm': 'وضع الإضاءة الدافئة (Warm Light): إضاءة رومانسية ناعمة تحاكي أجواء المساء والسهرات المريحة للعين.',
-    'natural': 'وضع الإضاءة الطبيعية (Natural Daylight): محاكاة لضوء الشمس الطبيعي لمكياج واقعي ومتناسق بدون ظلال.'
+    'white': 'تثبيت معزز لصابونة الركبة (Patella Reinforcement): تصميم دائري هندسي يحيط بالصابونة لتثبيتها في موضعها الصحيح، امتصاص الصدمات وتخفيف آلام الخشونة والانثناء.',
+    'warm': 'مرونة فائقة مضادة للتمزق (High Elasticity): نسيج مطاطي متدرج ثلاثي الأبعاد يحمي العضلات والأوتار من الإجهاد الزائد أثناء المشي والجري والعمل.',
+    'natural': 'تدفئة علاجية وحماية من البرودة (Cold Protection): طبقة عازلة سميكة تحافظ على حرارة المفصل وتنشط الدورة الدموية لمنع التيبس والآلام.'
   };
 
   modeBtns.forEach(btn => {
@@ -314,14 +406,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pkg = packages[selectedPackageId];
-      const orderNum = 'TIV-MIR-' + Math.floor(100000 + Math.random() * 900000);
+      const orderNum = 'TIV-KNE-' + Math.floor(100000 + Math.random() * 900000);
 
-      // Exact order details payload matching index.html format
+      // Exact order details payload
       const orderDetails = {
         orderDate: new Date().toLocaleString('ar-DZ', { timeZone: 'Africa/Algiers' }),
-        productName: 'مرآة زينة مضيئة للسيارة LED',
+        productName: 'مشد وداعم الركبة الطبي الرياضي',
         qty: pkg.qty,
-        colors: 'أبيض ناصع / LED 3 أوضاع',
+        colors: 'رمادي وأخضر / نسيج 3D بأحزمة ضغط',
         total: `${pkg.price} دج`,
         customerName: fullName,
         customerPhone: formattedPhone,
