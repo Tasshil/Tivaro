@@ -896,6 +896,78 @@ select.form-control {
   color: var(--primary-deep);
 }
 
+/* Delivery Pricing Notice */
+.delivery-pricing-notice {
+  background: #FFFBF5;
+  border: 1.5px dashed #FED7AA;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.notice-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-deep);
+  margin-bottom: 10px;
+}
+
+.notice-header svg {
+  stroke: var(--primary);
+  flex-shrink: 0;
+}
+
+.notice-header strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.notice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notice-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  color: var(--text-body);
+  background: #FFFFFF;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid #F1F5F9;
+}
+
+.notice-line .notice-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notice-line .notice-value {
+  color: var(--primary-deep);
+  font-weight: 700;
+}
+
+.notice-line .notice-value strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+@media (max-width: 480px) {
+  .notice-line {
+    font-size: 0.85rem;
+    padding: 7px 10px;
+  }
+}
+
 /* Order Summary Box */
 .order-summary-box {
   background: #F8FAFC;
