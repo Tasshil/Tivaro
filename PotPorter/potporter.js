@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Store in localStorage
       localStorage.setItem('lastPotPorterOrder', JSON.stringify(orderDetails));
 
-      // إرسال حدث الشراء لفيسبوك بيكسل عند النقر على زر طلب المنتج
+      // إرسال حدث الشراء لفيسبوك بيكسل (عند توفره في الصفحة مثل index.html)
       if (typeof fbq === 'function') {
         fbq('track', 'Purchase', {
           value: pkg ? pkg.price : 2500,
@@ -399,6 +399,24 @@ document.addEventListener('DOMContentLoaded', () => {
           num_items: pkg ? pkg.qty : 2
         });
         console.log('Facebook Pixel Purchase event tracked successfully on "طلب المنتج".');
+      }
+
+      // إرسال حدث الشراء والطلب لتيك توك بيكسل (عند توفره في الصفحة مثل PotPorter.html)
+      if (typeof ttq !== 'undefined' && typeof ttq.track === 'function') {
+        const pixelPayload = {
+          content_name: 'حامل طنجرة الأكل للرحلات العائلية',
+          content_type: 'product',
+          content_id: 'pot-porter-' + (pkg ? pkg.id : '2'),
+          quantity: pkg ? pkg.qty : 2,
+          price: pkg ? pkg.price : 2500,
+          value: pkg ? pkg.price : 2500,
+          currency: 'DZD'
+        };
+
+        // تتبع إتمام الدفع وتسجيل الطلب في تيك توك بيكسل
+        ttq.track('CompletePayment', pixelPayload);
+        ttq.track('PlaceAnOrder', pixelPayload);
+        console.log('TikTok Pixel CompletePayment & PlaceAnOrder events tracked successfully.');
       }
 
       // Send to Google Sheets
