@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const officeGroup = document.getElementById('officeGroup');
   const addressInput = document.getElementById('addressInput');
   const phoneInput = document.getElementById('phoneInput');
+  const phoneError = document.getElementById('phoneError');
 
   // Modal Elements
   const successModal = document.getElementById('orderSuccessModal');
@@ -118,10 +119,106 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000 * 60);
 
-  // Phone input filter (numbers only)
+  // Phone input validation helpers
+  function showPhoneError(msg) {
+    if (!phoneInput) return;
+    phoneInput.classList.remove('is-valid');
+    phoneInput.classList.add('is-invalid');
+    if (phoneError) {
+      phoneError.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span>${msg}</span>
+      `;
+      phoneError.style.display = 'flex';
+    }
+  }
+
+  function showPhoneSuccess() {
+    if (!phoneInput) return;
+    phoneInput.classList.remove('is-invalid');
+    phoneInput.classList.add('is-valid');
+    if (phoneError) {
+      phoneError.style.display = 'none';
+      phoneError.innerHTML = '';
+    }
+  }
+
+  function clearPhoneStatus() {
+    if (!phoneInput) return;
+    phoneInput.classList.remove('is-invalid');
+    phoneInput.classList.remove('is-valid');
+    if (phoneError) {
+      phoneError.style.display = 'none';
+      phoneError.innerHTML = '';
+    }
+  }
+
+  function validatePhoneNumber(value, isSubmittingOrBlur = false) {
+    const clean = (value || '').replace(/[^0-9]/g, '');
+
+    if (clean.length === 0) {
+      if (isSubmittingOrBlur) {
+        showPhoneError('يرجى إدخال رقم الهاتف.');
+        return false;
+      }
+      clearPhoneStatus();
+      return false;
+    }
+
+    // Must start with 05, 06, or 07
+    if (clean.length === 1) {
+      if (clean !== '0') {
+        showPhoneError('يجب أن يبدأ رقم الهاتف بـ 05 أو 06 أو 07');
+        return false;
+      } else {
+        clearPhoneStatus();
+        return false;
+      }
+    }
+
+    if (clean.length >= 2 && !clean.startsWith('05') && !clean.startsWith('06') && !clean.startsWith('07')) {
+      showPhoneError('رقم الهاتف غير صحيح! يجب أن يبدأ بـ 05 أو 06 أو 07');
+      return false;
+    }
+
+    // Checking length
+    if (clean.length < 10) {
+      if (isSubmittingOrBlur) {
+        showPhoneError(`رقم الهاتف ناقص (${clean.length} من 10 أرقام)! يرجى إدخال 10 أرقام كاملة.`);
+        return false;
+      } else {
+        clearPhoneStatus();
+        return false;
+      }
+    }
+
+    // Exactly 10 digits and valid prefix
+    if (/^0[567][0-9]{8}$/.test(clean)) {
+      showPhoneSuccess();
+      return true;
+    } else {
+      showPhoneError('رقم الهاتف غير صحيح. يرجى إدخال 10 أرقام تبدأ بـ 05 أو 06 أو 07');
+      return false;
+    }
+  }
+
+  // Phone input event listeners
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
-      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      let val = e.target.value.replace(/[^0-9]/g, '');
+      if (val.length > 10) {
+        val = val.slice(0, 10);
+      }
+      e.target.value = val;
+      validatePhoneNumber(val, false);
+    });
+
+    phoneInput.addEventListener('blur', (e) => {
+      validatePhoneNumber(e.target.value, true);
     });
   }
 
@@ -309,8 +406,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = phoneInput.value.trim();
       const wilaya = wilayaSelect.value;
 
-      if (!fullName || !phone || !wilaya) {
-        alert('يرجى ملء جميع الحقول المطلوبة.');
+      if (!fullName) {
+        alert('يرجى إدخال الاسم الكامل.');
+        document.getElementById('fullNameInput').focus();
+        return;
+      }
+
+      // Phone validation (Algerian mobile numbers: exactly 10 digits starting with 05, 06, or 07)
+      const isPhoneValid = validatePhoneNumber(phone, true);
+      if (!isPhoneValid) {
+        phoneInput.classList.remove('shake');
+        void phoneInput.offsetWidth;
+        phoneInput.classList.add('shake');
+        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        phoneInput.focus();
+        return;
+      }
+
+      if (!wilaya) {
+        alert('يرجى اختيار الولاية.');
+        wilayaSelect.focus();
         return;
       }
 

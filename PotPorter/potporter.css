@@ -835,6 +835,39 @@ header.scrolled {
   box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
 }
 
+.form-control.is-invalid {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.form-control.is-valid {
+  border-color: #10B981 !important;
+  background-color: #F0FDF4 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+.phone-error-message {
+  color: #DC2626;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+@keyframes shakeInput {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shakeInput 0.35s ease-in-out;
+}
+
 select.form-control {
   appearance: none;
   cursor: pointer;
