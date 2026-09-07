@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Facebook Pixel Purchase event tracked successfully on "طلب المنتج".');
       }
 
-      // إرسال حدث الشراء والطلب لتيك توك بيكسل (عند توفره في الصفحة مثل PotPorter.html)
+      // إرسال حدث الشراء لتيك توك بيكسل (CompletePayment فقط لتفادي التكرار)
       if (typeof ttq !== 'undefined' && typeof ttq.track === 'function') {
         const pixelPayload = {
           content_name: 'حامل طنجرة الأكل للرحلات العائلية',
@@ -413,10 +413,9 @@ document.addEventListener('DOMContentLoaded', () => {
           currency: 'DZD'
         };
 
-        // تتبع إتمام الدفع وتسجيل الطلب في تيك توك بيكسل
+        // تتبع الشراء فقط (CompletePayment)
         ttq.track('CompletePayment', pixelPayload);
-        ttq.track('PlaceAnOrder', pixelPayload);
-        console.log('TikTok Pixel CompletePayment & PlaceAnOrder events tracked successfully.');
+        console.log('TikTok Pixel CompletePayment tracked successfully.');
       }
 
       // Send to Google Sheets
