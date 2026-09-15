@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>عرض الباقة | شريط الذهب</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '932561906593620');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=932561906593620&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -606,6 +623,14 @@
     }
     if (!valid) return;
 
+    // منع تكرار الطلب في نفس الجلسة
+    const lastOrderKey = 'last_order_' + phone;
+    const lastOrderTime = localStorage.getItem(lastOrderKey);
+    if (lastOrderTime && (Date.now() - parseInt(lastOrderTime)) < 60000) { // منع إعادة الطلب لنفس الرقم خلال دقيقة
+      alert('⚠️ لقد قمت بتقديم طلب بالفعل للتو! سنتواصل معك هاتفياً لتأكيده.');
+      return;
+    }
+
     const o = OFFERS[selectedOffer];
     const orderNum = 'ZR-' + Date.now().toString().slice(-6);
     let addrText = '';
@@ -628,13 +653,18 @@
       total: o.total
     };
 
-    // تغيير حالة الزر أثناء الإرسال
+    // تغيير حالة الزر فوراً لمنع الضغط المزدوج (Double Click)
     const submitBtn = document.querySelector('.submit-btn');
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
     submitBtn.innerHTML = '⏳ جاري تسجيل الطلب...';
 
-    // إرسال البيانات إذا كان الرابط متوفراً
+    // تسجيل آخر وقت للطلب
+    localStorage.setItem(lastOrderKey, Date.now().toString());
+
+    // إرسال البيانات إلى Google Sheets
     if (GOOGLE_SHEET_WEBHOOK_URL) {
       fetch(GOOGLE_SHEET_WEBHOOK_URL, {
         method: 'POST',
@@ -644,8 +674,20 @@
       }).catch(err => console.error('Error sending to Google Sheets:', err));
     }
 
+    // إرسال حدث الشراء (Purchase) إلى Meta Pixel
+    if (typeof fbq === 'function') {
+      fbq('track', 'Purchase', {
+        value: o.total,
+        currency: 'DZD',
+        content_name: 'شريط الذهب للبلاط - ' + o.badgeLabel,
+        num_items: o.qty
+      });
+    }
+
     setTimeout(() => {
       submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = 'pointer';
       submitBtn.innerHTML = originalBtnText;
 
       document.getElementById('modal-order-num').textContent = orderNum;
