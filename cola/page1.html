@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عرض الباقة | شريط الذهب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #F0D080;
+      --gold-dark: #9A6E1E;
+      --dark: #1a1208;
+      --bg: #faf8f2;
+      --white: #ffffff;
+      --red: #e53935;
+      --green: #2e7d32;
+      --gray: #6b6b6b;
+      --border: #e0d5bb;
+      --accent: #1a237e;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      direction: rtl;
+    }
+
+    /* ===== TOP BANNER ===== */
+    .top-banner {
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .top-banner span { color: var(--gold-light); font-weight: 800; }
+
+
+    /* ===== HERO ===== */
+    .hero img { width: 100%; display: block; }
+
+    /* ===== BADGE STRIP ===== */
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 16px 12px 0;
+    }
+    .badge {
+      background: #fff;
+      border: 2px solid var(--gold);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 8px rgba(201,168,76,.12);
+    }
+
+    /* ===== OFFERS SELECTOR ===== */
+    .section-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+      padding: 18px 16px 8px;
+    }
+    .section-title span { color: var(--gold); }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 0 0 16px;
+    }
+    .offer-option {
+      border: 2.5px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      background: #fff;
+      transition: all .25s;
+      position: relative;
+    }
+    .offer-option.selected {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      box-shadow: 0 4px 14px rgba(201,168,76,.2);
+    }
+    .offer-option .badge-best {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .offer-option .qty-label { font-size: 22px; font-weight: 900; color: var(--dark); }
+    .offer-option .name-label { font-size: 12px; font-weight: 600; color: var(--gray); }
+    .offer-option .price-label { font-size: 15px; font-weight: 900; color: var(--gold-dark); margin-top: 4px; }
+    .offer-option .savings { font-size: 10.5px; color: var(--green); font-weight: 700; margin-top: 2px; }
+
+    /* ===== PRICE ALERT ===== */
+    .price-alert {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      margin: 16px 16px;
+      padding: 14px 18px;
+      box-shadow: 0 4px 15px rgba(201,168,76,.18);
+    }
+    .price-alert h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .price-alert .rows { display: flex; flex-direction: column; gap: 8px; }
+    .price-alert .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fffdf5;
+      border-radius: 10px;
+      padding: 9px 12px;
+      border: 1px solid #f0d080;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .price-alert .row .icon { font-size: 18px; }
+    .price-alert .row .label { color: var(--gray); font-weight: 600; flex: 1; }
+    .price-alert .row .price { color: var(--gold-dark); font-weight: 800; }
+
+    /* ===== OFFER SELECTOR INSIDE CARD ===== */
+    .offer-selector-inner {
+      padding: 16px 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-selector-title {
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .offer-selector-title span { color: var(--gold); }
+
+    /* ===== ORDER CARD ===== */
+    .order-card {
+      margin: 0 16px 24px;
+      background: var(--white);
+      border-radius: 18px;
+      border: 2px solid var(--border);
+      box-shadow: 0 6px 24px rgba(201,168,76,.12);
+      overflow: hidden;
+    }
+    .order-card-header {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .order-card-header h3 { color: #fff; font-size: 16px; font-weight: 800; }
+
+    .price-summary {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--gray);
+    }
+    .price-row.total {
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--dark);
+    }
+    .price-row.total .amount { color: var(--gold-dark); }
+    .price-row .savings-tag {
+      background: #e8f5e9;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* ===== FORM ===== */
+    .form-section { padding: 16px 20px; }
+
+    .delivery-tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+    }
+    .delivery-tabs button {
+      flex: 1;
+      padding: 12px 8px;
+      border: none;
+      background: #fff;
+      font-family: 'Cairo', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all .25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .delivery-tabs button.active {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13.5px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .form-group label .required { color: var(--red); margin-right: 2px; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      background: #fff;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: none; height: 80px; }
+    .form-group input.error { border-color: var(--red); }
+
+    /* ===== CUSTOM SELECT ===== */
+    .cs-wrap { position: relative; }
+    .cs-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+      min-height: 48px;
+      transition: border-color .2s, box-shadow .2s;
+      user-select: none;
+    }
+    .cs-wrap.cs-open .cs-trigger,
+    .cs-trigger:hover { border-color: var(--gold); }
+    .cs-wrap.cs-open .cs-trigger { box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
+    .cs-trigger.cs-error { border-color: var(--red) !important; }
+    .cs-val { font-family: 'Cairo', sans-serif; font-size: 14px; color: var(--dark); flex:1; }
+    .cs-ph { color: #aaa !important; }
+    .cs-chevron { width:18px; height:18px; color: var(--gold); transition: transform .25s; flex-shrink:0; margin-right:6px; }
+    .cs-wrap.cs-open .cs-chevron { transform: rotate(180deg); }
+    .cs-panel {
+      position: absolute; top: calc(100% + 6px); right:0; left:0;
+      background: #fff;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.14);
+      z-index: 500;
+      overflow: hidden;
+      display: none;
+    }
+    .cs-wrap.cs-open .cs-panel { display: block; animation: cs-drop .2s ease; }
+    @keyframes cs-drop { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .cs-search-row { padding: 10px 10px 8px; border-bottom: 1px solid var(--border); }
+    .cs-search {
+      width: 100%; padding: 9px 12px;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Cairo', sans-serif; font-size: 13px;
+      outline: none; direction: rtl; background: #faf8f2;
+      transition: border-color .2s;
+    }
+    .cs-search:focus { border-color: var(--gold); }
+    .cs-list {
+      list-style: none; max-height: 210px; overflow-y: auto;
+      padding: 6px 0;
+      scrollbar-width: thin; scrollbar-color: var(--gold-light) transparent;
+    }
+    .cs-list::-webkit-scrollbar { width: 5px; }
+    .cs-list::-webkit-scrollbar-thumb { background: var(--gold-light); border-radius: 4px; }
+    .cs-item {
+      padding: 10px 16px; font-family: 'Cairo', sans-serif; font-size: 13.5px;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      transition: background .15s; color: var(--dark);
+    }
+    .cs-item:hover { background: #fff8e1; }
+    .cs-item.cs-selected { background: #fff3cd; color: var(--gold-dark); font-weight: 700; }
+    .cs-check { color: var(--gold-dark); font-weight: 900; font-size: 14px; }
+    .cs-no-result { display: none; text-align: center; padding: 14px; font-size: 13px; color: var(--gray); }
+
+
+
+    @keyframes shake {
+      0%,100%{transform:translateX(0)}
+      20%{transform:translateX(-6px)}
+      40%{transform:translateX(6px)}
+      60%{transform:translateX(-4px)}
+      80%{transform:translateX(4px)}
+    }
+    .shake { animation: shake .5s ease; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 6px 20px rgba(201,168,76,.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,168,76,.45); }
+
+    .hidden { display: none !important; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; visibility: hidden;
+      transition: all .3s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: #fff; border-radius: 20px;
+      width: 100%; max-width: 420px; overflow: hidden;
+      transform: scale(.9) translateY(20px);
+      transition: transform .3s;
+    }
+    .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+    .modal-header { background: linear-gradient(135deg, #2e7d32, #43a047); padding: 20px; text-align: center; }
+    .modal-header .checkmark { font-size: 48px; display: block; }
+    .modal-header h2 { color: #fff; font-size: 18px; font-weight: 900; margin-top: 6px; }
+    .modal-body { padding: 20px; }
+    .modal-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0ead8; font-size: 14px; }
+    .modal-row:last-child { border: none; }
+    .modal-row .key { color: var(--gray); font-weight: 600; }
+    .modal-row .val { font-weight: 800; color: var(--dark); }
+    .modal-row .val.gold { color: var(--gold-dark); font-size: 17px; }
+    .modal-order-id { background: #fff8e1; border: 2px dashed var(--gold); border-radius: 12px; text-align: center; padding: 12px; margin-bottom: 16px; }
+    .modal-order-id p { font-size: 12px; color: var(--gray); }
+    .modal-order-id h3 { font-size: 22px; font-weight: 900; color: var(--gold-dark); letter-spacing: 1.5px; }
+    .modal-close-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: #fff; border: none; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; margin-top: 16px; }
+
+    @media (min-width: 640px) {
+      .order-card { max-width: 520px; margin: 0 auto 24px; }
+      .price-alert { max-width: 520px; margin: 16px auto; }
+      .badges { max-width: 520px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">✨ غيّر شكل بلاطك — <span>بلمسة ذهبية بسيطة</span></div>
+
+<!-- HERO -->
+<div class="hero"><img src="hero.jpg" alt="شريط الذهب - غيّر شكل البلاط" /></div>
+
+<!-- BADGES -->
+<div class="badges">
+  <div class="badge">⭐ جودة عالية</div>
+  <div class="badge">🚀 توصيل سريع</div>
+  <div class="badge">✅ ضمان الرضا</div>
+  <div class="badge">🎁 تركيب سهل</div>
+</div>
+
+<!-- PRICE ALERT -->
+<div class="price-alert">
+  <h3>💰 أسعار التوصيل مع ZR Express</h3>
+  <div class="rows">
+    <div class="row"><span class="icon">🏢</span><span class="label">توصيل لمكتب الشركة</span><span class="price">450 ~ 650 دج</span></div>
+    <div class="row"><span class="icon">🏠</span><span class="label">توصيل للمنزل</span><span class="price">650 ~ 1000 دج</span></div>
+  </div>
+</div>
+
+<!-- ORDER CARD -->
+<div class="order-card">
+  <div class="order-card-header">
+    <span style="font-size:22px">📦</span>
+    <h3>بطاقة الطلب</h3>
+  </div>
+
+  <!-- OFFER SELECTOR (inside card) -->
+  <div class="offer-selector-inner">
+    <p class="offer-selector-title">اختر <span>باقتك</span></p>
+    <div class="offers-grid">
+      <div class="offer-option" id="offer-1" onclick="selectOffer(1)">
+        <div class="qty-label">2</div>
+        <div class="name-label">علبتان</div>
+        <div class="price-label">2000 دج</div>
+        <div class="savings">&nbsp;</div>
+      </div>
+      <div class="offer-option selected" id="offer-2" onclick="selectOffer(2)">
+        <div class="badge-best">الأكثر طلباً</div>
+        <div class="qty-label">3</div>
+        <div class="name-label">+ قطعة مجانية 🎁</div>
+        <div class="price-label">3000 دج</div>
+        <div class="savings">قطعة هدية مجانية</div>
+      </div>
+      <div class="offer-option" id="offer-3" onclick="selectOffer(3)">
+        <div class="qty-label">4</div>
+        <div class="name-label">+ هدية + توصيل 🚀</div>
+        <div class="price-label">3900 دج</div>
+        <div class="savings">توصيل مجاني 🎉</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- FORM -->
+  <div class="form-section">
+
+    <!-- Delivery Tabs -->
+    <div class="delivery-tabs">
+      <button class="active" id="tab-home" onclick="switchDelivery('home')">🏠 توصيل للمنزل</button>
+      <button id="tab-office" onclick="switchDelivery('office')">🏢 استلام من المكتب</button>
+    </div>
+
+    <div class="form-group">
+      <label>الاسم الكامل <span class="required">*</span></label>
+      <input type="text" id="full-name" placeholder="أدخل اسمك الكامل" />
+      <span class="error-msg" id="err-name">⚠️ يرجى إدخال الاسم الكامل</span>
+    </div>
+
+    <div class="form-group">
+      <label>رقم الهاتف <span class="required">*</span></label>
+      <input type="tel" id="phone" placeholder="05xxxxxxxx" maxlength="10" />
+      <span class="error-msg" id="err-phone">⚠️ أدخل رقم جزائري صحيح (10 أرقام يبدأ بـ 05/06/07)</span>
+    </div>
+
+    <div class="form-group">
+      <label>الولاية <span class="required">*</span></label>
+      <div class="cs-wrap" id="wilaya-cs"></div>
+      <span class="error-msg" id="err-wilaya">⚠️ يرجى اختيار الولاية</span>
+    </div>
+
+    <!-- HOME -->
+    <div id="home-fields">
+      <div class="form-group">
+        <label>البلدية <span class="required">*</span></label>
+        <div class="cs-wrap" id="commune-cs"></div>
+        <span class="error-msg" id="err-commune">⚠️ يرجى اختيار البلدية</span>
+      </div>
+      <div class="form-group">
+        <label>العنوان التفصيلي <span class="required">*</span></label>
+        <textarea id="address" placeholder="الشارع، الحي، رقم المبنى..."></textarea>
+        <span class="error-msg" id="err-address">⚠️ يرجى إدخال العنوان</span>
+      </div>
+    </div>
+
+    <!-- OFFICE -->
+    <div id="office-fields" class="hidden">
+      <div class="form-group">
+        <label>مكتب ZR Express <span class="required">*</span></label>
+        <div class="cs-wrap" id="office-cs"></div>
+        <span class="error-msg" id="err-office">⚠️ يرجى اختيار المكتب</span>
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="submitOrder()">✅ تأكيد الطلب</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="success-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="checkmark">✅</span>
+      <h2>تم تأكيد طلبك بنجاح!</h2>
+    </div>
+    <div class="modal-body">
+      <div class="modal-order-id">
+        <p>رقم طلبك</p>
+        <h3 id="modal-order-num">–</h3>
+      </div>
+      <div class="modal-row"><span class="key">العرض المطلوب</span><span class="val" id="modal-offer">–</span></div>
+      <div class="modal-row"><span class="key">نوع التوصيل</span><span class="val" id="modal-delivery-type">–</span></div>
+      <div class="modal-row"><span class="key">العنوان</span><span class="val" id="modal-address">–</span></div>
+      <div class="modal-row"><span class="key">التوفير</span><span class="val" style="color:var(--green)" id="modal-savings">–</span></div>
+      <div class="modal-row"><span class="key">الإجمالي</span><span class="val gold" id="modal-total">–</span></div>
+      <button class="modal-close-btn" onclick="closeModal()">حسناً، شكراً!</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="customSelect.js"></script>
+<script>
+  // ===== OFFERS CONFIG =====
+  const OFFERS = {
+    1: { qty: 2, total: 2000, savings: 0,    freeDelivery: false, badgeLabel: 'علبتان — 2000 دج' },
+    2: { qty: 3, total: 3000, savings: 0,    freeDelivery: false, badgeLabel: '3 علب + قطعة مجانية — 3000 دج' },
+    3: { qty: 4, total: 3900, savings: 0,    freeDelivery: true,  badgeLabel: '4 علب + هدية + توصيل مجاني — 3900 دج' },
+  };
+  let selectedOffer = 2;
+  let deliveryMode = 'home';
+
+  // ===== INIT CUSTOM SELECTS =====
+  const csWilaya  = new CustomSelect(document.getElementById('wilaya-cs'),  { placeholder: '-- اختر الولاية --',  onChange: onWilayaChange });
+  const csCommune = new CustomSelect(document.getElementById('commune-cs'), { placeholder: '-- اختر البلدية --' });
+  const csOffice  = new CustomSelect(document.getElementById('office-cs'),  { placeholder: '-- اختر المكتب --' });
+  csWilaya.setOptions(WILAYAS.map(w => ({ value: w.code, label: w.name })));
+
+  // ===== OFFERS =====
+  function selectOffer(n) {
+    selectedOffer = n;
+    [1,2,3].forEach(i => document.getElementById('offer-'+i).classList.toggle('selected', i === n));
+  }
+
+  // ===== DELIVERY =====
+  function switchDelivery(mode) {
+    deliveryMode = mode;
+    document.getElementById('tab-home').classList.toggle('active', mode === 'home');
+    document.getElementById('tab-office').classList.toggle('active', mode === 'office');
+    document.getElementById('home-fields').classList.toggle('hidden', mode !== 'home');
+    document.getElementById('office-fields').classList.toggle('hidden', mode !== 'office');
+    csCommune.reset('-- اختر البلدية --');
+    csOffice.reset('-- اختر المكتب --');
+    csWilaya.reset('-- اختر الولاية --');
+    csWilaya.setOptions(WILAYAS.map(w => ({ value: w.code, label: w.name })));
+  }
+
+  function onWilayaChange(code) {
+    csCommune.reset('-- اختر البلدية --');
+    csOffice.reset('-- اختر المكتب --');
+    if (!code) return;
+    if (deliveryMode === 'home') {
+      csCommune.setOptions((COMMUNES[code] || []).map(c => ({ value: c, label: c })));
+    } else {
+      csOffice.setOptions((ZR_OFFICES[code] || []).map(o => ({ value: o, label: o })));
+    }
+  }
+
+  // ===== VALIDATION =====
+  function validatePhone(val) { return /^(05|06|07)[0-9]{8}$/.test(val.trim()); }
+  function showError(id, show) { document.getElementById(id).classList.toggle('show', show); }
+  function shakeInput(id) {
+    const el = document.getElementById(id);
+    el.classList.add('error','shake');
+    el.addEventListener('animationend', () => el.classList.remove('shake'), {once:true});
+  }
+
+  // ===== SUBMIT =====
+  function submitOrder() {
+    let valid = true;
+    const name   = document.getElementById('full-name').value.trim();
+    const phone  = document.getElementById('phone').value.trim();
+    const wilaya = csWilaya.getValue();
+
+    if (!name)               { shakeInput('full-name'); showError('err-name', true);   valid=false; } else showError('err-name', false);
+    if (!validatePhone(phone)){ shakeInput('phone');    showError('err-phone', true);   valid=false; } else showError('err-phone', false);
+    if (!wilaya)              { csWilaya.shakeError();  showError('err-wilaya', true);  valid=false; } else showError('err-wilaya', false);
+
+    if (deliveryMode === 'home') {
+      const commune = csCommune.getValue();
+      const address = document.getElementById('address').value.trim();
+      if (!commune) { csCommune.shakeError(); showError('err-commune', true); valid=false; } else showError('err-commune', false);
+      if (!address) { shakeInput('address');  showError('err-address', true);  valid=false; } else showError('err-address', false);
+    } else {
+      const office = csOffice.getValue();
+      if (!office) { csOffice.shakeError(); showError('err-office', true); valid=false; } else showError('err-office', false);
+    }
+    if (!valid) return;
+
+    const o = OFFERS[selectedOffer];
+    const orderNum = 'ZR-' + Date.now().toString().slice(-6);
+    let addrText = '';
+    if (deliveryMode === 'home') {
+      addrText = csWilaya.getLabel() + ' / ' + csCommune.getLabel() + ' / ' + document.getElementById('address').value.trim();
+    } else {
+      addrText = csWilaya.getLabel() + ' / ' + csOffice.getLabel();
+    }
+
+    document.getElementById('modal-order-num').textContent = orderNum;
+    document.getElementById('modal-offer').textContent = o.badgeLabel;
+    document.getElementById('modal-delivery-type').textContent = deliveryMode === 'home' ? '🏠 توصيل للمنزل' : '🏢 استلام من المكتب';
+    document.getElementById('modal-address').textContent = addrText;
+    document.getElementById('modal-savings').textContent = o.freeDelivery ? '🚀 توصيل مجاني + 🎁 قطعة هدية' : (selectedOffer === 2 ? '🎁 قطعة هدية مجانية' : '—');
+    document.getElementById('modal-total').textContent = o.total.toLocaleString('ar-DZ') + ' دج';
+    document.getElementById('success-modal').classList.add('open');
+  }
+
+  function closeModal() { document.getElementById('success-modal').classList.remove('open'); }
+</script>
+</body>
+</html>
