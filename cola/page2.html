@@ -549,9 +549,9 @@
 <script>
   // ===== OFFERS CONFIG =====
   const OFFERS = {
-    1: { qty: 2, total: 2000, savings: 0,    freeDelivery: false, badgeLabel: 'علبتان — 2000 دج' },
-    2: { qty: 3, total: 3000, savings: 0,    freeDelivery: false, badgeLabel: '3 علب + قطعة مجانية — 3000 دج' },
-    3: { qty: 4, total: 3900, savings: 0,    freeDelivery: true,  badgeLabel: '4 علب + هدية + توصيل مجاني — 3900 دج' },
+    1: { qty: 2, total: 2000, offerName: 'علبتان', freeDelivery: false, badgeLabel: 'علبتان — 2000 دج' },
+    2: { qty: 3, total: 3000, offerName: '3 علب + قطعة مجانية', freeDelivery: false, badgeLabel: '3 علب + قطعة مجانية — 3000 دج' },
+    3: { qty: 4, total: 3900, offerName: '4 علب + هدية + توصيل مجاني', freeDelivery: true, badgeLabel: '4 علب + هدية + توصيل مجاني — 3900 دج' },
   };
   let selectedOffer = 2;
   let deliveryMode = 'home';
@@ -633,11 +633,16 @@
 
     const o = OFFERS[selectedOffer];
     const orderNum = 'ZR-' + Date.now().toString().slice(-6);
+    const wilayaName = csWilaya.getLabel();
+    const communeName = deliveryMode === 'home' ? csCommune.getLabel() : '';
+    const officeName = deliveryMode === 'office' ? csOffice.getLabel() : '';
+    const streetAddress = deliveryMode === 'home' ? document.getElementById('address').value.trim() : '';
+
     let addrText = '';
     if (deliveryMode === 'home') {
-      addrText = csWilaya.getLabel() + ' / ' + csCommune.getLabel() + ' / ' + document.getElementById('address').value.trim();
+      addrText = wilayaName + ' / ' + communeName + ' / ' + streetAddress;
     } else {
-      addrText = csWilaya.getLabel() + ' / ' + csOffice.getLabel();
+      addrText = wilayaName + ' / ' + officeName;
     }
 
     // إعداد رابط Google Apps Script Webhook
@@ -647,10 +652,13 @@
       orderNum: orderNum,
       name: name,
       phone: phone,
-      offer: o.badgeLabel,
-      deliveryType: deliveryMode === 'home' ? 'توصيل للمنزل' : 'استلام من المكتب (ZR Express)',
-      address: addrText,
-      total: o.total
+      offer: o.offerName,
+      total: o.total,
+      deliveryType: deliveryMode === 'home' ? 'توصيل للمنزل' : 'استلام من المكتب',
+      wilaya: wilayaName,
+      commune: communeName,
+      office: officeName,
+      address: streetAddress || officeName
     };
 
     // تغيير حالة الزر فوراً لمنع الضغط المزدوج (Double Click)
