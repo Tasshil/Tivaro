@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 1,
       name: 'قطعة واحدة (1)',
       qty: 1,
-      price: 1500,
+      price: 1850,
       originalPrice: 2000,
       badge: 'الطلب الأساسي',
       shippingText: 'توصيل سريع'
@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 2,
       name: 'قطعتين (2 قطع)',
       qty: 2,
-      price: 2500,
-      originalPrice: 3000,
+      price: 2800,
+      originalPrice: 3700,
       badge: 'الأكثر طلباً 🔥',
-      shippingText: 'وفر 500 دج!'
+      shippingText: 'وفر 900 دج!'
     },
     3: {
       id: 3,
       name: '3 قطع (عرض خاص)',
       qty: 3,
-      price: 3200,
-      originalPrice: 4500,
+      price: 3500,
+      originalPrice: 5550,
       badge: 'عرض التوفير الأكبر 🎁',
-      shippingText: 'وفر 1300 دج!'
+      shippingText: 'وفر 2050 دج!'
     }
   };
 
@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // إرسال حدث الشراء لفيسبوك بيكسل (عند توفره في الصفحة مثل index.html)
       if (typeof fbq === 'function') {
         fbq('track', 'Purchase', {
-          value: pkg ? pkg.price : 2500,
+          value: pkg ? pkg.price : 2800,
           currency: 'DZD',
           content_name: 'حامل طنجرة الأكل للرحلات العائلية',
           content_type: 'product',
@@ -516,21 +516,70 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Facebook Pixel Purchase event tracked successfully on "طلب المنتج".');
       }
 
-      // إرسال حدث الشراء لتيك توك بيكسل (CompletePayment فقط لتفادي التكرار)
-      if (typeof ttq !== 'undefined' && typeof ttq.track === 'function') {
-        const pixelPayload = {
-          content_name: 'حامل طنجرة الأكل للرحلات العائلية',
-          content_type: 'product',
-          content_id: 'pot-porter-' + (pkg ? pkg.id : '2'),
-          quantity: pkg ? pkg.qty : 2,
-          price: pkg ? pkg.price : 2500,
-          value: pkg ? pkg.price : 2500,
-          currency: 'DZD'
-        };
+      // إرسال بيانات المطابقة المتقدمة وحدث الشراء لتيك توك بيكسل (TikTok Pixel Identify & Purchase)
+      if (typeof window.trackTikTokPurchase === 'function') {
+        window.trackTikTokPurchase({
+          phone: formattedPhone || phone,
+          orderNum: orderNum,
+          pkg: pkg
+        });
+      } else if (typeof ttq !== 'undefined' && typeof ttq.track === 'function') {
+        (async () => {
+          try {
+            const sha256Fallback = async (str) => {
+              if (!str) return '';
+              try {
+                const buffer = new TextEncoder().encode(str.toString().trim().toLowerCase());
+                const hash = await crypto.subtle.digest('SHA-256', buffer);
+                return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+              } catch (e) { return ''; }
+            };
 
-        // تتبع الشراء فقط (CompletePayment)
-        ttq.track('CompletePayment', pixelPayload);
-        console.log('TikTok Pixel CompletePayment tracked successfully.');
+            const hashedPhone = await sha256Fallback(formattedPhone || phone);
+            const hashedOrderId = await sha256Fallback(orderNum);
+
+            if (typeof ttq.identify === 'function') {
+              ttq.identify({
+                phone_number: hashedPhone,
+                external_id: hashedOrderId
+              });
+            }
+
+            const orderValue = pkg ? pkg.price : 2800;
+            const prodId = 'pot-porter-' + (pkg ? pkg.id : '2');
+            const prodName = 'حامل طنجرة الأكل للرحلات العائلية';
+
+            ttq.track('Purchase', {
+              contents: [
+                {
+                  content_id: prodId,
+                  content_name: prodName
+                }
+              ],
+              value: orderValue,
+              currency: 'DZD'
+            });
+
+            ttq.track('CompletePayment', {
+              contents: [
+                {
+                  content_id: prodId,
+                  content_name: prodName
+                }
+              ],
+              content_id: prodId,
+              content_name: prodName,
+              quantity: pkg ? pkg.qty : 2,
+              price: orderValue,
+              value: orderValue,
+              currency: 'DZD'
+            });
+
+            console.log('TikTok Pixel: identify & Purchase tracked successfully.');
+          } catch (err) {
+            console.error('TikTok Pixel Tracking Error:', err);
+          }
+        })();
       }
 
       // Send to Google Sheets
