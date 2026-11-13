@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 1,
       name: 'قطعة واحدة (1)',
       qty: 1,
-      price: 1850,
+      price: 1450,
       originalPrice: 2000,
       badge: 'الطلب الأساسي',
       shippingText: 'توصيل سريع'
@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 2,
       name: 'قطعتين (2 قطع)',
       qty: 2,
-      price: 2800,
-      originalPrice: 3700,
+      price: 2200,
+      originalPrice: 2900,
       badge: 'الأكثر طلباً 🔥',
-      shippingText: 'وفر 900 دج!'
+      shippingText: 'وفر 700 دج!'
     },
     3: {
       id: 3,
       name: '3 قطع (عرض خاص)',
       qty: 3,
-      price: 3500,
-      originalPrice: 5550,
+      price: 2900,
+      originalPrice: 4350,
       badge: 'عرض التوفير الأكبر 🎁',
-      shippingText: 'وفر 2050 دج!'
+      shippingText: 'وفر 1450 دج!'
     }
   };
 
@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // إرسال حدث الشراء لفيسبوك بيكسل (عند توفره في الصفحة مثل index.html)
       if (typeof fbq === 'function') {
         fbq('track', 'Purchase', {
-          value: pkg ? pkg.price : 2800,
+          value: pkg ? pkg.price : 2200,
           currency: 'DZD',
           content_name: 'حامل طنجرة الأكل للرحلات العائلية',
           content_type: 'product',
@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
               });
             }
 
-            const orderValue = pkg ? pkg.price : 2800;
+            const orderValue = pkg ? pkg.price : 2200;
             const prodId = 'pot-porter-' + (pkg ? pkg.id : '2');
             const prodName = 'حامل طنجرة الأكل للرحلات العائلية';
 
