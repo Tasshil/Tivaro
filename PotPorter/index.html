@@ -53,11 +53,14 @@
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-text-col">
-        <div class="hero-tag">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-          </svg>
-          <span>الحل المثالي للرحلات والنزهات 🍲</span>
+        <!-- بطاقة السعر الفوري (بتصميم الباقة الأكثر طلباً) -->
+        <div class="hero-pricing-box">
+          <span class="package-badge-tag">الأكثر طلباً 🔥</span>
+          <div class="hero-pkg-info">
+            <span class="hero-pkg-title">قطعتين (2 قطع)</span>
+            <span class="hero-pkg-sub">قطعة 1 ب 1450 دج (وفر 700 دج!)</span>
+          </div>
+          <div class="hero-pkg-price">2200 دج</div>
         </div>
 
         <h1 class="hero-title">
@@ -68,15 +71,6 @@
         <p class="hero-subtitle">
           تصميم قماشي مبطن ومتين بمقابض قوية لحمل ونقل أواني الطبخ وطناجر الأكل بكل أمان وسهولة، يحافظ على الحرارة ويمنع انسكاب الطعام في السيارة.
         </p>
-
-        <!-- بطاقة السعر الفوري -->
-        <div class="hero-pricing-box">
-          <div class="price-main">
-            <span class="current-price">1450 دج</span>
-            <span class="old-price">2000 دج</span>
-          </div>
-          <span class="discount-pill">عرض خاص اليوم</span>
-        </div>
 
         <!-- زر الطلب المباشر -->
         <a href="#orderSection" class="btn-cta-orange">
@@ -147,7 +141,6 @@
   <!-- قسم صور وتفاصيل الاستخدام (Product Showcase) -->
   <section class="product-showcase-section">
     <div class="section-header">
-      <span class="section-pill">تصميم ذكي وعملي</span>
       <h2 class="section-title">كيف يجعل نزهاتكم العائلية أسهل؟</h2>
       <p class="section-desc">صور توضح طريقة عمل الحامل وكيفية استيعابه للطناجر والقدور بأمان</p>
     </div>
@@ -156,7 +149,7 @@
       <!-- بطاقة 1: الطنجرة داخل الحامل -->
       <div class="showcase-card">
         <div class="showcase-img-box">
-          <img src="assets/abor.jpg" alt="تثبيت الطنجرة ونقلها بأمان">
+          <img src="assets/fikozina.jpg" alt="تثبيت الطنجرة ونقلها بأمان" style="object-position: center 32%;">
         </div>
         <div class="showcase-card-body">
           <h3 class="showcase-card-title">🍲 حمل آمن ومحكم لمختلف القدور</h3>
@@ -167,7 +160,7 @@
       <!-- بطاقة 2: الحامل مفتوح ومطوي -->
       <div class="showcase-card">
         <div class="showcase-img-box">
-          <img src="assets/ador.jpg" alt="سحاب كامل وطي سهل">
+          <img src="assets/family_picnic.jpg" alt="مثالي للنزهات والرحلات العائلية" style="object-position: center 72%;">
         </div>
         <div class="showcase-card-body">
           <h3 class="showcase-card-title">⚡ سحاب كامل وطي سريع</h3>
@@ -180,7 +173,6 @@
   <!-- قسم استعراض الألوان المتوفرة (في بطاقة واحدة أفقية بمربعات بيضاء) -->
   <section class="colors-showcase-section">
     <div class="section-header">
-      <span class="section-pill">تشكيلة ألوان متميزة</span>
       <h2 class="section-title">الألوان العصرية المتوفرة</h2>
     </div>
 
@@ -213,54 +205,6 @@
     </div>
   </section>
 
-  <!-- قسم المميزات في بطاقة واحدة أفقية -->
-  <section class="features-section">
-    <div class="features-unified-card">
-      <div class="feature-item">
-        <div class="feature-icon-wrapper">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-        </div>
-        <h3 class="feature-title">حماية وأمان تام</h3>
-      </div>
-
-      <div class="feature-divider"></div>
-
-      <div class="feature-item">
-        <div class="feature-icon-wrapper">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 14 14"></polyline>
-          </svg>
-        </div>
-        <h3 class="feature-title">سحاب قوي ومحكم</h3>
-      </div>
-
-      <div class="feature-divider"></div>
-
-      <div class="feature-item">
-        <div class="feature-icon-wrapper">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-            <polyline points="17 2 12 7 7 2"></polyline>
-          </svg>
-        </div>
-        <h3 class="feature-title">سعة لمختلف الأحجام</h3>
-      </div>
-
-      <div class="feature-divider"></div>
-
-      <div class="feature-item">
-        <div class="feature-icon-wrapper">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l6 6"></path>
-          </svg>
-        </div>
-        <h3 class="feature-title">سهولة الغسيل والتخزين</h3>
-      </div>
-    </div>
-  </section>
 
   <!-- قسم بطاقة الطلب السريع (Order Section) -->
   <section class="order-section" id="orderSection">
