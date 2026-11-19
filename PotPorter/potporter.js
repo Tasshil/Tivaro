@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (receiptPackage) receiptPackage.textContent = pkg.name;
         if (receiptColors) receiptColors.textContent = colorsString;
         if (receiptAddress) receiptAddress.textContent = `${wilaya} - ${deliveryType === 'home' ? commune : office}`;
-        if (receiptTotal) receiptTotal.textContent = `${pkg.price} دج`;
+        if (receiptTotal) receiptTotal.textContent = `${pkg.price} دج (بدون سعر التوصيل)`;
 
         successModal.classList.add('open');
         document.body.style.overflow = 'hidden';
